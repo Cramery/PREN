@@ -25,13 +25,17 @@ def main():
     vs.start()
 
     #Initialize Config for tesseract
-    config = '--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789'
+    #tesconfigargs = ('-l digits --psm 10')
+    tesconfigargs = '--oem 0 -c tessedit_char_whitelist=0123456789-. --psm 10'
 
+    #Set pytesseract CMD (Windows only)
     pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 
     #Instanciate Logger
     setup_logger('log', r'C:\Temp\ImageAnalysis.csv')
     log = logging.getLogger('log')
+
+    log.info("-------------------------------------Capture started----------------------------------------------")
 
     while True:
 
@@ -69,10 +73,9 @@ def main():
                     x,y,width,height = cv2.boundingRect(screenCnt)
                     croppedframe = frame[y: y + height , x: x + width] # both opencv and numpy are "row-major", so y goes first
 
-                    digit = pytesseract.image_to_string(croppedframe, config=config)
+                    digit = pytesseract.image_to_string(croppedframe, config=tesconfigargs)
 
                     # Print and Log recognized text
-                    print(digit)
                     log.info(digit)
                     break
 
@@ -84,7 +87,6 @@ def main():
     #Do Cleanup
     vs.stop()
     cv2.destroyAllWindows()
-
 
 #Execute Main
 if __name__ == '__main__':
