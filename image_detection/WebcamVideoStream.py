@@ -1,5 +1,6 @@
 from threading import Thread
 import cv2
+from time import sleep
 
 class WebcamVideoStream:
     def __init__(self, src):

@@ -3,6 +3,7 @@ import pytesseract
 import cv2
 import numpy as np
 import logging
+from time import sleep
 
 
 # Logger Setup
@@ -24,14 +25,22 @@ def main():
     vs.start()
 
     #Initialize Config for tesseract
-    config = ('-l digits --psm 10')
+    #tesconfigargs = ('-l digits --psm 10')
+    tesconfigargs = '--oem 0 -c tessedit_char_whitelist=0123456789-. --psm 10'
+
+    #Set pytesseract CMD (Windows only)
+    pytesseract.pytesseract.tesseract_cmd = 'C:\\Program Files (x86)\\Tesseract-OCR\\tesseract.exe'
 
     #Instanciate Logger
     setup_logger('log', r'C:\Temp\ImageAnalysis.csv')
     log = logging.getLogger('log')
 
+    log.info("-------------------------------------Capture started----------------------------------------------")
+
     while True:
+
         frame = vs.read()
+        cv2.imshow('frame', frame)
 
         #Color to GrayScale Filter
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -43,13 +52,14 @@ def main():
         canny = cv2.Canny(gauss,100,200)
         cv2.imshow('canny', canny)
 
-        #find corners, minimum quality, minimum distance
-        cnts = cv2.findContours(canny.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
+        _, cnts, _= cv2.findContours(canny, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:10]
 
+
         ## loop over our contours
+        screenCnt = None
         for c in cnts:
-            if cv2.contourArea(c) > 1000 :
+            if cv2.contourArea(c) > 1000:
 
                 #approximate the contour
                 peri = cv2.arcLength(c, True)
@@ -62,17 +72,17 @@ def main():
                     cv2.drawContours(frame, [screenCnt], -1, (0, 255, 0), 3)
                     x,y,width,height = cv2.boundingRect(screenCnt)
                     croppedframe = frame[y: y + height , x: x + width] # both opencv and numpy are "row-major", so y goes first
-                    digit = pytesseract.image_to_string(croppedframe, config=config)
 
-                    # Print recognized text
-                    print(digit)
+                    digit = pytesseract.image_to_string(croppedframe, config=tesconfigargs)
+
+                    # Print and Log recognized text
                     log.info(digit)
-
                     break
+
         cv2.imshow('frame', frame)
         key = cv2.waitKey(5) & 0xFF
         if key == 27:
-            break
+           break
 
     #Do Cleanup
     vs.stop()
