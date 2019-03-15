@@ -1,10 +1,9 @@
-from SoftwareControlUnit import SoftwareControlUnit
+from UARTCommunicator import UARTCommunicator
 
 def main():
-    print("Run ListenForStart")
-    SoftwareControlUnit().ListenForStart()
-
-
+    print("Software started")
+    _uartController = UARTCommunicator()
+    _uartController.ListenForStart()
 
 if __name__ == "__main__":
     main()
