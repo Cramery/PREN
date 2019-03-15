@@ -1,5 +1,6 @@
 from SoftwareControlUnit import SoftwareControlUnit
-#todo from Thread.ParallelTask import ParallelTask
+from Thread.ParallelTask import ParallelTask
+from Tasks.SpeedMeasurementTask import SpeedMeasurementTask
 from time import sleep
 
 class UARTCommunicator():
@@ -11,9 +12,9 @@ class UARTCommunicator():
     _isCubeFound = False
     _isCubeReached = False
     _isCubeSafed = False
-    _isPossibleStopDetected = False
+    _isTrainStopped = False
 
-    _measurementThread = None
+    _speedMeasurementThread = None
 
     def __init__(self):
         print("UARTC: Init UARTCommunicator")
@@ -26,24 +27,25 @@ class UARTCommunicator():
             self._isStarted = True
         #SCU initialisieren und Start Methode starten
         self._softwareControlUnit = SoftwareControlUnit(self)
-        self._softwareControlUnit.Start()
+        self._speedMeasurementThread = ParallelTask(SpeedMeasurementTask())
+        self._softwareControlUnit.Run()
 
     def SetDatacontroller(self, dataController):
         _dataController = dataController
 
-    def StartMeasurement(self):
-        print("UARTC: measurement started")
-        #self._measurementThread = ParallelTask(#todo TaskConstructor)
+    def StartSpeedMeasurement(self):
+        print("UARTC: speed measurement started")
+        self._speedMeasurementThread.Start()
+
+    def StopSpeedMeasurement(self):
+        print("UARTC: speed measurement started")
+        self._speedMeasurementThread.Stop()
 
     ###################################################################
     # Speedcontrol
 
-    def AddSpeed(self, speedAmmount):
-        print("UARTC: add speed: {}".format(speedAmmount))
-        #todo
-
-    def ReduceSpeed(self, speedAmmount):
-        print("UARTC: reduce speed: {}".format(speedAmmount))
+    def SetSpeed(self, speedAmmount):
+        print("UARTC: speed set to: {}".format(speedAmmount))
         #todo
 
     def StopTrain(self):
@@ -69,16 +71,13 @@ class UARTCommunicator():
         self.StopTrain()
 
     def SafeCube(self):
-        print("UARTC: Safing Cube...")
+        print("UARTC: safing Cube...")
         while not self._isCubeSafed:
             # todo
             sleep(0.1)
             self._isCubeSafed = True
 
-    def DetectPossibleStop(self):
-        print("UARTC: detecting possible stop...")
-        while not self._isPossibleStopDetected:
-            # todo
-            print("UARTC: possible reached")
-            self._isPossibleStopDetected = True
-
+    def StopAtNextSign(self):
+        print("UARTC: stopping at next sign...")
+        while not self._isTrainStopped:
+            self._isTrainStopped = True
