@@ -56,7 +56,7 @@ class SoftwareControlUnit():
         #If Stopsign and is Looking for Stopsign
         if signData.SignType == 0 and self._isLookingForStopSign:
             self._uartCommunicator.SetSpeed(self._SEARCHSPEEDSLOW)
-            self._isStopSignDetected = self._verifyStopSign(signData)
+            self._isStopSignDetected = self.verifyStopSign(signData)
         #Is Stopsign was found
         if self._isStopSignDetected:
             self._uartCommunicator.StopAtNextSign()
@@ -68,7 +68,7 @@ class SoftwareControlUnit():
     def OnCurveLeft(self):
         self._uartCommunicator.SetSpeed(self._SPEEDMAX)
 
-    def _verifyStopSign(self, sign):
+    def verifyStopSign(self, sign):
         if sign.NumberOnShield == self._targetStopSignNumber:
             return True
         else:
