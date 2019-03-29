@@ -1,33 +1,29 @@
-from time import sleep
-from Thread.ParallelTask import ParallelTask
-from Tasks.LookForCurveTask import LookForCurveTask
-
 class ImageProcessingController():
-    _softwareControlUnit = None
     _dataController = None
-    _lookingForCurveTask = None
+    _uartCommunicator = None
 
-    def __init__(self, softwareControllUnit):
+    _stopSignDigit = 0
+    _startSignCounter = 0
+
+    _isStopSignFound = False
+
+    def __init__(self, uartCommunicator, dataController):
         print("IPC: Init ImageProcessingController")
-        self._softwareControlUnit = softwareControllUnit
-        self._lookingForCurveTask = ParallelTask(LookForCurveTask())
+        self._uartCommunicator = uartCommunicator
+        self._dataController = dataController
 
-    def SetDatacontroller(self, datacontroller):
-        self._dataController = datacontroller
+    def LookForHalteAndStartSign(self):
+        print("IPC: started looking for START and HALTE signs")
+        while self._stopSignDigit == 0 and self._startSignCounter <= 3:
+            #todo
+            self._stopSignDigit = 3
+            self._startSignCounter += 1
+        print("IPC: 3 Rounds finished, Stopsigndigit is ".format(self._stopSignDigit))
+        self._uartCommunicator.LastRoundIsFinished()
 
-    def LookForSigns(self):
-        print("IPC: started looking for Signs")
-        while True:
-            #todo Bildverarbeitung
-            #signData =
-            #self._dataController.SignDetected(signData)
-            #self._softwareControlUnit.OnSignFound(signData)
-            sleep(0.01)
-
-    def StartLookingForCurves(self):
-        print("IPC: started looking for Curves")
-        self._lookingForCurveTask.Start()
-
-    def StopLookingForCurves(self):
-        print("IPC: stopped looking for Curves")
-        self._lookingForCurveTask.Stop()
+    def LookForStopSign(self):
+        print("IPC: started looking for STOP signs")
+        while not self._isStopSignFound:
+            self._isStopSignFound = True
+        print("IPC: Stop sign found")
+        self._uartCommunicator.NextSignIsStopSign()

@@ -1,101 +1,86 @@
-from SoftwareControlUnit import SoftwareControlUnit
+from DataController import DataController
+from ImageProcessingController import  ImageProcessingController
 from Thread.ParallelTask import ParallelTask
-from Tasks.SpeedMeasurementTask import SpeedMeasurementTask
+from Tasks.UARTListenerThread import UARTListenerThread
 from time import sleep
 import serial
 import serial.tools.list_ports as port_list
 
 class UARTCommunicator():
-    _softwareControlUnit = None
     _dataController = None
+    _uartListenerThread = None
 
     #Serialport
-    #_serialPortPath = "/dev/ttyAMA0"
+    #todo _serialPortPath = "/dev/ttyAMA0"
+    _serialPort = None
     _serialPortPath = ""
     _baudrate = 115200
     _serialtTimeout = 3.0
 
     #Flags
     _isStarted = False
-    _isCubeFound = False
-    _isCubeReached = False
-    _isCubeSafed = False
-    _isTrainStopped = False
 
-    _speedMeasurementThread = None
+    #Receive Commanddefinitions
+    _onCommand = 0
+    _accelerationLenghtwiseCommand = 2 # Es folgen 3 Byte Data
+    _accelerationCrosswiseCommand = 3 # Es folgen 3 Byte Data
+    _startSignDetectionCommand = 4
+
+    #Send Commanddefinitions
+    _successInit = 1
+    _roundsDriven = 5
+    _halteSignalRead = 6
+    _stopSignDetected = 7
 
     def __init__(self):
         print("UARTC: Init UARTCommunicator")
-        self.listSerialPorts()
+        self._dataController = DataController(self)
+        self._imageProcessingController = ImageProcessingController(self, self._dataController)
+        self._serialPort = None
+        #todo self.listSerialPorts()
         #todo self.setSerialPort()
-        #port = serial.Serial(_serialPortPath, baudrate=_baudrate, timeout=_serialtTimeout)
-
+        #todo port = serial.Serial(_serialPortPath, baudrate=_baudrate, timeout=_serialtTimeout)
 
     def ListenForStart(self):
-        print("UARTC: listening for ON signal")
+        print("UARTC: listening for ON-Signal")
         while not self._isStarted:
-            #todo rcv = port.read()
-            print("UARTC: On-Signal detected")
-            self._isStarted = True
-        #SCU initialisieren und Start Methode starten
-        self._softwareControlUnit = SoftwareControlUnit(self)
-        self._speedMeasurementThread = ParallelTask(SpeedMeasurementTask())
-        self._softwareControlUnit.Run()
+            #todo rcv = port.read(8)
+            rcv = 0
+            if(rcv == self._onCommand):
+                print("UARTC: On-Signal detected")
+                self._isStarted = True
+        #todo uartListener Thread mit port initialisieren
+        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPort))
+        self.StartUARTListener()
 
-    def SetDatacontroller(self, dataController):
-        _dataController = dataController
+    def CubeIsSafed(self):
+        print("UARTC: Cube is safed")
+        self._imageProcessingController.LookForHalteAndStartSign()
 
-    def StartSpeedMeasurement(self):
-        print("UARTC: speed measurement started")
-        self._speedMeasurementThread.Start()
+    def LastRoundIsFinished(self):
+        print("UARTC: Last round is finished")
+        #todo UART Singal senden
+        self._imageProcessingController.LookForStopSign()
 
-    def StopSpeedMeasurement(self):
-        print("UARTC: speed measurement started")
-        self._speedMeasurementThread.Stop()
-
-    ###################################################################
-    # Speedcontrol
-
-    def SetSpeed(self, speedAmmount):
-        print("UARTC: speed set to: {}".format(speedAmmount))
-        #todo
-
-    def StopTrain(self):
-        print("UARTC: Stop train")
-        #todo
+    def NextSignIsStopSign(self):
+        print("UARTC: Next Sign is Stopsign")
+        #todo UART Signal senden
+        self._uartListenerThread.Stop()
+        self._dataController.PersistData()
 
     ###################################################################
-    # Detection & Grab
+    #Listener
+    def StartUARTListener(self):
+        print("UARTC: UARTListener started")
+        self._uartListenerThread.Start()
 
-    def LookForCube(self):
-        print("UARTC: look for Cube...")
-        while not self._isCubeFound:
-            # todo
-            print("UARTC: Cube detected")
-            self._isCubeFound = True
-
-    def ReachCube(self):
-        print("UARTC: Reaching Cube...")
-        while not self._isCubeReached:
-            # todo
-            print("UARTC: Cube reached")
-            self._isCubeReached = True
-        self.StopTrain()
-
-    def SafeCube(self):
-        print("UARTC: safing Cube...")
-        while not self._isCubeSafed:
-            # todo
-            sleep(0.1)
-            self._isCubeSafed = True
-
-    def StopAtNextSign(self):
-        print("UARTC: stopping at next sign...")
-        while not self._isTrainStopped:
-            self._isTrainStopped = True
+    def StopUARTListener(self):
+        print("UARTC: UARTListener stopped")
+        self._uartListenerThread.Stop()
 
     ###################################################################
-    #Helptools
+    #Helpmethods
+
     def listSerialPort(self):
         ports = list(port_list.comports())
         for p in ports:
