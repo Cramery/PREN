@@ -7,23 +7,8 @@ import serial
 import serial.tools.list_ports as port_list
 
 class UARTCommunicator():
-    _dataController = None
-    _uartListenerThread = None
-    _imageProcessingController = None
-
-    #Serialport
-    #todo _serialPortPath = "/dev/ttyAMA0"
-    _serialPort = None
-    _serialPortPath = ""
-    _baudrate = 115200
-    _serialtTimeout = 3.0
-
-    #Flags
-    _isStarted = False
-
-    #Receive Commanddefinitions
+    # Receive Commanddefinitions
     _onCommand = 0
-
     #Send Commanddefinitions
     _successInit = 1
     _roundsDriven = 5
@@ -34,11 +19,19 @@ class UARTCommunicator():
         print("UARTC: Init UARTCommunicator")
         self._dataController = DataController(self)
         self._imageProcessingController = ImageProcessingController(self, self._dataController)
+        self._uartListenerThread = None
+        # Serialport
+        # todo self._serialPortPath = "/dev/ttyAMA0"
         self._serialPort = None
+        self._serialPortPath = ""
+        self._baudrate = 115200
+        self._serialtTimeout = 3.0
         #todo self.listSerialPorts()
         #self.setSerialPort()
         #port = serial.Serial(_serialPortPath, baudrate=_baudrate, timeout=_serialtTimeout)
         #self._serialPort.write(self._successInit)
+        # Flag
+        self._isStarted = False
 
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")

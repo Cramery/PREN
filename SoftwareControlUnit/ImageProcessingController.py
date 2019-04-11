@@ -1,16 +1,13 @@
 class ImageProcessingController():
-    _dataController = None
-    _uartCommunicator = None
-
-    _stopSignDigit = 0
-    _startSignCounter = 0
-
-    _isStopSignFound = False
-
     def __init__(self, uartCommunicator, dataController):
         print("IPC: Init ImageProcessingController")
         self._uartCommunicator = uartCommunicator
         self._dataController = dataController
+
+        self._stopSignDigit = 0
+        self._startSignCounter = 0
+        #Flag
+        self._isStopSignFound = False
 
     def LookForHalteAndStartSign(self):
         print("IPC: started looking for START and HALTE signs")

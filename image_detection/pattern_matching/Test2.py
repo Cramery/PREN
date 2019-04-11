@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
 
 img = cv2.imread('pictures/two/all.jpeg',0)
 img2 = img.copy()
@@ -29,6 +28,8 @@ for meth in methods:
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
     cv2.rectangle(img,top_left, bottom_right, 255, 2)
+
+    cv2.imshow('test',img)
 
     # plt.subplot(121),plt.imshow(res,cmap = 'gray')
     # plt.title('Matching Result'), plt.xticks([]), plt.yticks([])

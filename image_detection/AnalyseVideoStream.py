@@ -1,10 +1,7 @@
 from WebcamVideoStream import WebcamVideoStream
 import pytesseract
 import cv2
-import numpy as np
 import logging
-from time import sleep
-
 
 # Logger Setup
 def setup_logger(logger_name, log_file, level=logging.INFO):
