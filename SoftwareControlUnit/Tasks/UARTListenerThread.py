@@ -1,23 +1,20 @@
 from time import sleep
 
 class UARTListenerThread():
-    _serialPort = None
-    _uartCommunicator = None
-    _dataController = None
-
     #Commands
     _accelerationLenghtwiseCommand = 2 # Es folgen 3 Byte Data
     _accelerationCrosswiseCommand = 3 # Es folgen 3 Byte Data
     _startSignDetectionCommand = 4
 
-    #Flags
-    _isStarted = True
 
     def __init__(self, uartCommunicator, serialPort, datacontroller):
         print("ULT: init")
         self._uartCommunicator = uartCommunicator
         self._dataController = datacontroller
+
         self._serialPort = serialPort
+        # Flag
+        _isStarted = True
 
     def SetDatacontroller(self, datacontroller):
         self._dataController = datacontroller

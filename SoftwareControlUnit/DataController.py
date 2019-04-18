@@ -1,11 +1,10 @@
 class DataController():
-    _uartCommunicator = None
-    _accelerationLenghtwiseList = []
-    _accelerationCrosswiseList = []
-
     def __init__(self, uartCommunicator):
         print("DC: Init DataController")
-        _uartCommunicator = uartCommunicator
+        self._uartCommunicator = uartCommunicator
+
+        self._accelerationLenghtwiseList = []
+        self._accelerationCrosswiseList = []
 
     def StoreAccelerationLenghtwise(self, accelerationLenghtwise):
         self._accelerationLenghtwise.append(accelerationLenghtwise)
