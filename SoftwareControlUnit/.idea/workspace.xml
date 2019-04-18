@@ -1,211 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48eda17c-6aaf-46e1-9d10-70a993ba67e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/OpenCVExample.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/OpenCVExample.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BdfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BdfFontFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BlpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BlpImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BmpImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BmpImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BufrStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/BufrStubImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ContainerIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ContainerIO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/CurImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/CurImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/DcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/DcxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/DdsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/DdsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/EpsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/EpsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ExifTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ExifTags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FitsStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FitsStubImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FliImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FliImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FontFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FpxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FpxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FtexImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/FtexImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GbrImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GbrImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GdImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GdImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GifImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GifImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GimpGradientFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GimpGradientFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GimpPaletteFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GimpPaletteFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GribStubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/GribStubImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Hdf5StubImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Hdf5StubImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IcnsImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IcnsImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IcoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IcoImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageChops.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageChops.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageCms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageColor.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageColor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageDraw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageDraw2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageDraw2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageEnhance.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageEnhance.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFont.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageFont.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageGrab.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageGrab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMath.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMode.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMorph.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageMorph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageOps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageOps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImagePalette.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImagePalette.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImagePath.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImagePath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageQt.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageQt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageSequence.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageSequence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageShow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageShow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageStat.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageStat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageTk.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageTk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageWin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImageWin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImtImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/ImtImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IptcImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/IptcImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/Jpeg2KImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/JpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/JpegImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/JpegPresets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/JpegPresets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/McIdasImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/McIdasImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MicImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MicImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MpegImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MpegImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MpoImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MpoImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MspImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/MspImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/OleFileIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/OleFileIO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PSDraw.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PSDraw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PaletteFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PaletteFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PalmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PalmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcdImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcfFontFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcfFontFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcxImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PcxImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PdfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PdfImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PdfParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PdfParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PixarImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PixarImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PngImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PngImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PpmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PsdImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PsdImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PyAccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/PyAccess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SgiImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SgiImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SpiderImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SpiderImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SunImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/SunImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TarIO.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TarIO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TgaImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TgaImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TiffImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TiffImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TiffTags.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/TiffTags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WalImageFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WalImageFile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WebPImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WebPImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WmfImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/WmfImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XVThumbImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XVThumbImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XbmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XbmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XpmImagePlugin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/XpmImagePlugin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_binary.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_binary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_tkinter_finder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_tkinter_finder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/_version.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/PIL/features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/INSTALLER" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/INSTALLER" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/METADATA" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/METADATA" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/Pillow-5.4.1.dist-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils-0.5.2-py3.7.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/contours.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/contours.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/convenience.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/convenience.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/encodings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/encodings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/facealigner.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/facealigner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/face_utils/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/dense.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/dense.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/factories.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/factories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/gftt.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/gftt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/harris.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/harris.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/rootsift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/feature/rootsift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/io/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/io/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/io/tempfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/io/tempfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/meta.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/object_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/object_detection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/perspective.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/perspective.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/count_frames.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/count_frames.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/filevideostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/filevideostream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/fps.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/fps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/pivideostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/pivideostream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/videostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/videostream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/webcamvideostream.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/imutils/video/webcamvideostream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/numpy-1.16.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/numpy-1.16.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/dependency_links.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/entry_points.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/entry_points.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract-0.2.6-py3.7.egg-info/top_level.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract/pytesseract.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/pytesseract/pytesseract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/site-packages/setuptools-39.1.0-py3.7.egg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Lib/tcl8.6/init.tcl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/Activate.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/Activate.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_asyncio.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_bz2.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_contextvars.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_ctypes.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_ctypes_test.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_decimal.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_distutils_findvs.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_elementtree.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_hashlib.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_lzma.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_msi.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_multiprocessing.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_overlapped.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_queue.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_socket.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_sqlite3.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_ssl.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_testbuffer.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_testcapi.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_testconsole.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_testimportmultiple.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_testmultiphase.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/_tkinter.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/activate" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/activate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/activate.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/activate.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/easy_install-3.7-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/easy_install-3.7-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/easy_install-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/easy_install-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/f2py.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/f2py.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/libcrypto-1_1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/libssl-1_1.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip3-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip3-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip3.7-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pip3.7-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pyexpat.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pytesseract-script.py" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pytesseract-script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/python.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/python.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/python3.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/python37.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pythonw.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/pythonw.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/range-detector" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/range-detector" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/select.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/sqlite3.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/tcl86t.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/tk86t.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/unicodedata.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/vcruntime140.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/Scripts/winsound.pyd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/pip-selfcheck.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/venv/pyvenv.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/venv/pyvenv.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataController.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImageProcessingController.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessingController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tasks/UARTListenerThread.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/UARTListenerThread.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UARTCommunicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/UARTCommunicator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/.idea/image_detection.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/.idea/image_detection.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/AnalyseVideoStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/AnalyseVideoStream.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/untitled1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/untitled1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image_detection/pattern_matching/Test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../image_detection/pattern_matching/Test2.py" afterDir="false" />
-    </list>
+    <list default="true" id="48eda17c-6aaf-46e1-9d10-70a993ba67e8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,31 +13,13 @@
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1554373735158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$SoftwareControlUnit.coverage" NAME="SoftwareControlUnit Coverage Results" MODIFIED="1552555309994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1818724360">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="110" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+            <state relative-caret-position="85">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -249,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="153">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -258,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -267,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -315,12 +93,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds">
     <option name="width" value="1947" />
     <option name="height" value="1107" />
@@ -347,7 +119,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../image_detection/pattern_matching" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ImageRecognition" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -468,17 +240,18 @@
       <workItem from="1553165748184" duration="718000" />
       <workItem from="1553848220817" duration="4541000" />
       <workItem from="1554369681402" duration="4679000" />
+      <workItem from="1555566210848" duration="13000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32406000" />
+    <option name="totallyTimeSpent" value="32419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1298" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33764136" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.34329563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -491,7 +264,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.14274128" side_tool="true" visible="true" weight="0.25289255" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.14274128" side_tool="true" visible="true" weight="0.25247526" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289166" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -503,9 +276,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Thread/Runnable.py">
@@ -541,29 +311,29 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/threading.py" />
     <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="85">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
