@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/PatternMatching.py" description="top_left = max_loc" line="25" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c140c6e-b91e-4863-80e7-b1a8c1761981" name="Default Changelist" comment="" />
+    <list default="true" id="73765a3d-6254-4994-9539-ccce04419454" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,10 +14,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Pattern Matching.py">
+        <entry file="file://$PROJECT_DIR$/PatternMatching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+            <state relative-caret-position="289">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -34,7 +40,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Pattern Matching.py" />
+        <option value="$PROJECT_DIR$/PatternMatching.py" />
       </list>
     </option>
   </component>
@@ -49,18 +55,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Pattern_Matching2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Pattern_Matching2" type="462c0819:PsiDirectoryNode" />
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -76,8 +82,8 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Pattern Matching" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Pattern_Matching2" />
+    <configuration name="PatternMatching" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Pattern_Matching" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -88,7 +94,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pattern Matching.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PatternMatching.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,7 +105,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Pattern Matching" />
+        <item itemvalue="Python.PatternMatching" />
       </list>
     </recent_temporary>
   </component>
@@ -108,11 +114,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2c140c6e-b91e-4863-80e7-b1a8c1761981" name="Default Changelist" comment="" />
-      <created>1556523287391</created>
+      <changelist id="73765a3d-6254-4994-9539-ccce04419454" name="Default Changelist" comment="" />
+      <created>1556527287412</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1556523287391</updated>
+      <updated>1556527287412</updated>
     </task>
     <servers />
   </component>
@@ -121,7 +127,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960254" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24960254" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -129,7 +135,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -140,10 +146,13 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Pattern Matching.py">
+    <entry file="file://$PROJECT_DIR$/PatternMatching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        <state relative-caret-position="289">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
