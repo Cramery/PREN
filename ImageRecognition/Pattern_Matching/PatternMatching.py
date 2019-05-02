@@ -1,21 +1,30 @@
 import cv2
-import numpy as np
+import os
 
 # Import all captured images
-
-path = 'pictures/two/close.jpeg'
+path = 'pictures_real/fahrt/'
+capturenames = os.listdir(path)  # list of subdirectories and files
 captures = []
-i = 0
 
-captures.append(cv2.imread(path,0))
+for capturename in capturenames:
+    temp = path + capturename
+    captures.append(cv2.imread(temp,0))
 
-templates = [cv2.imread('pictures/two/all.jpeg',0), cv2.imread('pictures/six/all.jpeg',0)]
+# Read all template images
+path = 'pictures/two/templates/'
+templatenames = os.listdir(path)
+templates = []
+for templatename in templatenames:
+    temp = path + templatename
+    templates.append(cv2.imread(temp, 0))
+
 
 # All the 6 methods for comparison in a list
 methods = ['cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR_NORMED',
            'cv2.TM_CCOEFF', 'cv2.TM_CCORR', 'cv2.TM_SQDIFF']
 
 for meth in methods:
+    print(str(meth))
     for capture in captures:
         maxwkeit = 0
         maxno = 0

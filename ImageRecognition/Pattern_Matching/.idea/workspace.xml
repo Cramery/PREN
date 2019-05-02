@@ -13,8 +13,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PatternMatching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+            <state relative-caret-position="221">
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,11 +60,57 @@
               <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
               <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+              <item name="two" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+              <item name="two" type="462c0819:PsiDirectoryNode" />
+              <item name="fahrt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+              <item name="two" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures_real" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pattern_Matching" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pattern_Matching" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures_real" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ramon\Dokumente\GitHub\PREN\ImageRecognition\Pattern_Matching\pictures\two\fahrt" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ramon\Dokumente\GitHub\PREN\ImageRecognition\Pattern_Matching\pictures\two\templates" />
+      <recent name="C:\Users\Ramon\Dokumente\GitHub\PREN\ImageRecognition\Pattern_Matching\pictures\two" />
+      <recent name="C:\Users\Ramon\Dokumente\GitHub\PREN\ImageRecognition\Pattern_Matching\pictures\two\fahrt" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -124,7 +173,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26110125" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -140,10 +189,19 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pictures_real/fahrt/SaveShieldscanny_0.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pictures_real/templates/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/PatternMatching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        <state relative-caret-position="221">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
