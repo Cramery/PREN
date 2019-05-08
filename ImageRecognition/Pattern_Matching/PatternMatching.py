@@ -31,7 +31,7 @@ for meth in methods:
         # capture = cv2.resize(capture, (20, 40))
         # Get widht/height
         height, width = capture.shape
-        # if one is too small, dont do anything
+        # if capture is too small, dont do anything
         if (height > 40 & width > 18):
             # so something
             i = 0
