@@ -25,9 +25,10 @@ methods = ['cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR_NORMED',
 
 for meth in methods:
     print(str(meth))
+    maxwkeittemp = 0
+    maxnotemp = 0
     for capture in captures:
-        maxwkeittemp = 0
-        maxnotemp = 0
+        # All 
         i = 0
         for template in templates:
             i += 1
@@ -43,5 +44,6 @@ for meth in methods:
                 maxwkeittemp = max_val
                 maxnotemp = i
         print(str(maxnotemp))
+        print(str(maxwkeittemp))
         # Testen, ob nur die MaxWkeit über alle genommen werden soll oder ob mehrere Bilder nacheinander die Zahl haben muss
         # Max WKeit muss bestimmten Wert haben (diesen Wert durch tests noch herausfinden)
