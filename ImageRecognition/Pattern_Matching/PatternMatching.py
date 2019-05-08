@@ -29,19 +29,23 @@ for meth in methods:
     print(str(meth))
     for capture in captures:
         # capture = cv2.resize(capture, (20, 40))
-        
-        i = 0
-        for template in templates:
-            i += 1
-            w, h = template.shape[::-1]
-            method = eval(meth)
+        # Get widht/height
+        height, width = capture.shape
+        # if one is too small, dont do anything
+        if (height > 40 & width > 18):
+            # so something
+            i = 0
+            for template in templates:
+                i += 1
+                w, h = template.shape[::-1]
+                method = eval(meth)
 
-            # Apply template Matching
-            res = cv2.matchTemplate(capture, template, method)
-            min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+                # Apply template Matching
+                res = cv2.matchTemplate(capture, template, method)
+                min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
-            # print(str(max_val))
-            if max_val > maxwkeittemp:
-                maxwkeittemp = max_val
-                maxnotemp = i
+                # print(str(max_val))
+                if max_val > maxwkeittemp:
+                    maxwkeittemp = max_val
+                    maxnotemp = i
     print(str(maxnotemp))
