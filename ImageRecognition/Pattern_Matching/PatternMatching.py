@@ -29,7 +29,7 @@ for meth in methods:
     print(str(meth))
     for capture in captures:
         # capture = cv2.resize(capture, (20, 40))
-
+        
         i = 0
         for template in templates:
             i += 1
