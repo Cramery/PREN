@@ -28,7 +28,8 @@ for meth in methods:
     maxnotemp = 0
     print(str(meth))
     for capture in captures:
-        capture = cv2.resize(capture, (30, 60))
+        # capture = cv2.resize(capture, (20, 40))
+
         i = 0
         for template in templates:
             i += 1
