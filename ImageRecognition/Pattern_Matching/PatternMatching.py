@@ -11,7 +11,7 @@ for capturename in capturenames:
     captures.append(cv2.imread(temp,0))
 
 # Read all template images
-path = 'pictures/two/templates/'
+path = 'pictures_real/templates/'
 templatenames = os.listdir(path)
 templates = []
 for templatename in templatenames:
@@ -28,7 +28,7 @@ for meth in methods:
     maxnotemp = 0
     print(str(meth))
     for capture in captures:
-        # All 
+        capture = cv2.resize(capture, (30, 60))
         i = 0
         for template in templates:
             i += 1
@@ -39,11 +39,8 @@ for meth in methods:
             res = cv2.matchTemplate(capture, template, method)
             min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
-            print(str(max_val))
+            # print(str(max_val))
             if max_val > maxwkeittemp:
                 maxwkeittemp = max_val
                 maxnotemp = i
     print(str(maxnotemp))
-    print(str(maxwkeittemp))
-        # Testen, ob nur die MaxWkeit über alle genommen werden soll oder ob mehrere Bilder nacheinander die Zahl haben muss
-        # Max WKeit muss bestimmten Wert haben (diesen Wert durch tests noch herausfinden)
