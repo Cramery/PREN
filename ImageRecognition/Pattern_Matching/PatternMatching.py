@@ -32,7 +32,7 @@ for meth in methods:
         # Get widht/height
         height, width = capture.shape
         # if capture is too small, dont do anything
-        if (height > 40 & width > 18):
+        if (height > 30 & width > 18):
             # so something
             i = 0
             for template in templates:
@@ -49,3 +49,4 @@ for meth in methods:
                     maxwkeittemp = max_val
                     maxnotemp = i
     print(str(maxnotemp))
+    print(str(maxwkeittemp))
