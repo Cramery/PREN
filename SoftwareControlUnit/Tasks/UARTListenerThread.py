@@ -17,9 +17,6 @@ class UARTListenerThread():
         # Flag
         self._isStarted = True
 
-    def SetDatacontroller(self, datacontroller):
-        self._dataController = datacontroller
-
     def Run(self):
         print("ULT: running")
         while self._isStarted:
@@ -37,16 +34,16 @@ class UARTListenerThread():
         print("ULT: stopped")
 
     def functionSwitch(self, argument):
-        if argument == self._accelerationLenghtwiseCommand:
-            print("ULT: acceleration Lenghtwise")
-            #self._dataController.StoreAccelerationLenghtwise(self._serialPort.read(3))
+        if argument == self._startSignDetectionCommand:
+            self._uartCommunicator.CubeIsSafed()
         elif argument == self._accelerationCrosswiseCommand:
             print("ULT: acceleration Crosswise")
             #self._dataController.StoreAccelerationCrosswise(self._serialPort.read(3))
+        elif argument == self._accelerationLenghtwiseCommand:
+            print("ULT: acceleration Lenghtwise")
+            #self._dataController.StoreAccelerationLenghtwise(self._serialPort.read(3))
         elif argument == self._speedCommand:
             print("ULT: speed")
             #self._dataController.StoreSpeedData(self._serialPort.read(3))
-        elif argument == self._startSignDetectionCommand:
-            self._uartCommunicator.CubeIsSafed()
         else:
             print("InvalidArgument passed")

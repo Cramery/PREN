@@ -2,7 +2,7 @@ from DataController import DataController
 from ImageProcessingController import  ImageProcessingController
 from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
-import serial.tools.list_ports as port_list
+import serial
 
 class UARTCommunicator():
     # Receive Commanddefinitions
@@ -19,16 +19,9 @@ class UARTCommunicator():
         self._imageProcessingController = ImageProcessingController(self, self._dataController)
         self._uartListenerThread = None
         # Serialport
-        # todo self._serialPortPath = "/dev/ttyAMA0"
-        self._serialPort = None
-        self._serialPortPath = ""
-        self._baudrate = 115200
-        self._serialtTimeout = 3.0
-        #todo self.listSerialPorts()
-        #self.setSerialPort()
-        #port = serial.Serial(_serialPortPath, baudrate=_baudrate, timeout=_serialtTimeout)
+        self._setupSerialPorts()
         #self._serialPort.write(self._successInit)
-        # Flag
+        #Flag
         self._isStarted = False
 
     def ListenForStart(self):
@@ -40,7 +33,7 @@ class UARTCommunicator():
                 print("UARTC: On-Signal detected")
                 self._isStarted = True
         #todo uartListener Thread mit port initialisieren
-        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPort, self._dataController))
+        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPortRx, self._dataController))
         self.StartUARTListener()
 
     def CubeIsSafed(self):
@@ -49,13 +42,13 @@ class UARTCommunicator():
 
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
-        #self._serialPort.write(self._roundsDriven)
+        #self._serialPortTx.write(self._roundsDriven)
         #todo self._playBuzzer(self._imageProcessingController.GetStopSignDigit())
         self._imageProcessingController.DetectStopSign()
 
     def StopTrain(self):
         print("UARTC: Next Sign is Stopsign")
-        #self._serialPort.write(self._stopSignDetected)
+        #self._serialPortTx.write(self._stopSignDetected)
         self._uartListenerThread.Stop()
         self._dataController.PersistData()
         self._imageProcessingController.UnloadGPIO()
@@ -77,12 +70,15 @@ class UARTCommunicator():
     ###################################################################
     #Helpmethods
 
-    def listSerialPort(self):
-        ports = list(port_list.comports())
+    def _listSerialPorts(self):
+        ports = list(serial.port_list.comports())
         for p in ports:
             print(p)
 
-    def setSerialPort(self):
-        ports = list(port_list.comports())
-        if ports:
-            _serialPortPath = ports[0]
+    def _setupSerialPorts(self):
+        serialPortTxPath = "/dev/ttyAMA0"
+        serialPortRxPath = "/dev/ttyS0"
+        baudrate = 115200
+        serialtTimeout = 1.0
+        self._serialPortRx = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)
+        self._serialPortTx = serial.Serial(serialPortTxPath, baudrate=baudrate, timeout=serialtTimeout)
