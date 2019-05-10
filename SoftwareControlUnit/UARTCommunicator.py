@@ -2,8 +2,6 @@ from DataController import DataController
 from ImageProcessingController import  ImageProcessingController
 from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
-from time import sleep
-import serial
 import serial.tools.list_ports as port_list
 
 class UARTCommunicator():
@@ -47,18 +45,24 @@ class UARTCommunicator():
 
     def CubeIsSafed(self):
         print("UARTC: Cube is safed")
-        self._imageProcessingController.LookForHalteAndStartSign()
+        self._imageProcessingController.LookForStartSignCaptureStream()
 
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
         #self._serialPort.write(self._roundsDriven)
-        self._imageProcessingController.LookForStopSign()
+        #todo self._playBuzzer(self._imageProcessingController.GetStopSignDigit())
+        self._imageProcessingController.DetectStopSign()
 
-    def NextSignIsStopSign(self):
+    def StopTrain(self):
         print("UARTC: Next Sign is Stopsign")
         #self._serialPort.write(self._stopSignDetected)
         self._uartListenerThread.Stop()
         self._dataController.PersistData()
+        self._imageProcessingController.UnloadGPIO()
+
+    def _playBuzzer(self, count):
+        #todo
+        print("Buzzer sound: ", count)
 
     ###################################################################
     #Listener
