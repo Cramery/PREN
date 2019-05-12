@@ -6,34 +6,44 @@ import serial
 
 class UARTCommunicator():
     # Receive Commanddefinitions
-    _onCommand = 0
+    _onCommand = "9"
     #Send Commanddefinitions
-    _successInit = 1
-    _roundsDriven = 5
-    #todo _halteSignalRead = 6 je nach dem ob wir postprocessing machen oder nicht
-    _stopSignDetected = 7
+    _successInit = b'1'
+    _roundsDriven = b'5'
+    _stopSignDetected = b'7'
 
     def __init__(self):
         print("UARTC: Init UARTCommunicator")
         self._dataController = DataController(self)
         self._imageProcessingController = ImageProcessingController(self, self._dataController)
-        self._uartListenerThread = None
-        # Serialport
-        self._setupSerialPorts()
-        #self._serialPort.write(self._successInit)
-        #Flag
+        #Control
         self._isStarted = False
+        #Serialport
+        self._setupSerialPorts()
+        #UART Listener Thread initialisieren
+        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPortRx, self._dataController))
+        self._serialPortTx.write(self._successInit)
+        print("test")
 
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")
         while not self._isStarted:
-            #todo rcv = port.read(1)
-            rcv = 0
+            rcv = self._serialPortRx.read(1).decode("utf-8")
+            print("UARTC: listening...", rcv)
+            #todo löschen -> Signal von Microcontroller
+            # Signale für start, speed und accelerationmeasurement und start signdetection schreiben
+            self._serialPortRx.write(b'9')
+            self._serialPortRx.write(b'2')
+            self._serialPortRx.write(b'101')
+            self._serialPortRx.write(b'3')
+            self._serialPortRx.write(b'202')
+            self._serialPortRx.write(b'8')
+            self._serialPortRx.write(b'303')
+            self._serialPortRx.write(b'4')
             if(rcv == self._onCommand):
                 print("UARTC: On-Signal detected")
                 self._isStarted = True
-        #todo uartListener Thread mit port initialisieren
-        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPortRx, self._dataController))
+        #UART Listener-Thread starten
         self.StartUARTListener()
 
     def CubeIsSafed(self):
@@ -42,7 +52,7 @@ class UARTCommunicator():
 
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
-        #self._serialPortTx.write(self._roundsDriven)
+        self._serialPortTx.write(self._roundsDriven)
         #todo self._playBuzzer(self._imageProcessingController.GetStopSignDigit())
         self._imageProcessingController.DetectStopSign()
 
@@ -58,7 +68,7 @@ class UARTCommunicator():
         print("Buzzer sound: ", count)
 
     ###################################################################
-    #Listener
+    #UART-Listener
     def StartUARTListener(self):
         print("UARTC: UARTListener started")
         self._uartListenerThread.Start()
@@ -76,9 +86,10 @@ class UARTCommunicator():
             print(p)
 
     def _setupSerialPorts(self):
-        serialPortTxPath = "/dev/ttyAMA0"
+        #todo serialPortTxPath = "/dev/ttyAMA0"
         serialPortRxPath = "/dev/ttyS0"
-        baudrate = 115200
+        serialPortTxPath = "/dev/ttyS0"
+        baudrate = 9600
         serialtTimeout = 1.0
         self._serialPortRx = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)
         self._serialPortTx = serial.Serial(serialPortTxPath, baudrate=baudrate, timeout=serialtTimeout)

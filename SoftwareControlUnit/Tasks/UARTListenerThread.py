@@ -1,33 +1,26 @@
-from time import sleep
+import time
 
 class UARTListenerThread():
     #Commands
-    _accelerationLenghtwiseCommand = 2 # Es folgen 3 Byte Data
-    _accelerationCrosswiseCommand = 3 # Es folgen 3 Byte Data
-    _speedCommand = 8
-    _startSignDetectionCommand = 4
-
+    _accelerationLenghtwiseCommand = "2" # Es folgen 3 Byte Data
+    _accelerationCrosswiseCommand = "3" # Es folgen 3 Byte Data
+    _speedCommand = "8" # Es folgen 3 Byte Data
+    _startSignDetectionCommand = "4"
 
     def __init__(self, uartCommunicator, serialPort, datacontroller):
         print("ULT: init")
         self._uartCommunicator = uartCommunicator
         self._dataController = datacontroller
-
-        self._serialPort = serialPort
+        self._serialPortRx = serialPort
         # Flag
         self._isStarted = True
 
     def Run(self):
         print("ULT: running")
         while self._isStarted:
-            '''
-            rcv = None
-            rcv = self._serialPort.read(1) #one byte
-            '''
-            rcv = 4
+            rcv = self._serialPortRx.read(1).decode("utf-8")
             if rcv is not None:
                 self.functionSwitch(rcv)
-            sleep(2)
 
     def Stop(self):
         self._isStarted = False
@@ -37,13 +30,13 @@ class UARTListenerThread():
         if argument == self._startSignDetectionCommand:
             self._uartCommunicator.CubeIsSafed()
         elif argument == self._accelerationCrosswiseCommand:
-            print("ULT: acceleration Crosswise")
-            #self._dataController.StoreAccelerationCrosswise(self._serialPort.read(3))
+            print("ULT: acceleration Crosswise ", self._serialPortRx.read(3).decode("utf-8"))
+            #self._dataController.StoreAccelerationCrosswise(self._serialPortRx.read(3).decode("utf-8"))
         elif argument == self._accelerationLenghtwiseCommand:
-            print("ULT: acceleration Lenghtwise")
-            #self._dataController.StoreAccelerationLenghtwise(self._serialPort.read(3))
+            print("ULT: acceleration Lenghtwise ", self._serialPortRx.read(3).decode("utf-8"))
+            #self._dataController.StoreAccelerationLenghtwise()
         elif argument == self._speedCommand:
-            print("ULT: speed")
-            #self._dataController.StoreSpeedData(self._serialPort.read(3))
+            print("ULT: speed ", self._serialPortRx.read(3).decode("utf-8"))
+            #self._dataController.StoreSpeedData(self._serialPortRx.read(3).decode("utf-8"))
         else:
             print("InvalidArgument passed")
