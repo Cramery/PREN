@@ -2,6 +2,7 @@ import time
 import RPi.GPIO as GPIO
 import numpy as np
 from picamera import PiCamera
+from picamera.array import PiRGBArray
 import os
 import cv2
 
@@ -14,9 +15,11 @@ class ImageProcessingController():
         self._stopSignDigit = 0
         self._startSignCounter = 0
         self._isStopSignFound = False
-        #todo Cam
-        #self._camera = PiCamera()
-        #self._camera.framerate = 10
+        #Cam
+		self._camera = PiCamera()
+		self._resolutionWidth = 640
+        self._resolutionHeight = 480
+		self._camera.resolution = (self._resolutionWidth, self._resolutionHeight)
         #Imagetemaplates
         self._templateArray = self._readTemplateArray("/ImageTemplates")
         #Distancemeasurement
@@ -83,25 +86,25 @@ class ImageProcessingController():
         return picameraStream
 
     def CaptureStream(self, getTopImages):
-        width = 640
-        height = 480
-        if(getTopImages):
-            self.camera_recordtime = 2
-        else:
-            self.camera_recordtime = 4
-        #Init image and Streamarray
         stream = []
-        image = np.empty((height * width * 3,), dtype=np.uint8)
-        self._camera.start_recording()
-        while self._camera.capture_continuous(image, 'bgr'):
-            image = image.reshape((height, width, 3))
+		image = np.empty((self._resolutionHeight, self._resolutionWidth, 3), dtype=np.uint8)
+        #Set framerate, calculate recordcount
+		if(getTopImages):
+			self.camera.framerate = 20
+			recordcount = self.camera.framerate
+        else:
+			self.camera.framerate = 10
+			recordcount = self.camera.framerate * 2
+		#Capture images and append to stream
+		for count in range(0,recordcount):
+			camera.capture(image, format='bgr')
+			stream.append(image)
             if (getTopImages):
                 pass
                 # todo Startsignalerkennung
             else:
                 pass
                 # todo Stopsignalerkennung
-            stream.append(image)
         return stream
 
     def _analyzeVideoStream(self, videostream):

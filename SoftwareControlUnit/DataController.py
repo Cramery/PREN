@@ -8,7 +8,7 @@ class DataController():
         self._speedData = []
         self._topSignalStream = []
         #PersistFilePath
-        self._persistFileName = 'your_file.txt'
+        self._persistFileName = 'data.txt'
 
 
     def StoreAccelerationLenghtwise(self, accelerationLenghtwise):
@@ -23,21 +23,21 @@ class DataController():
     def SaveTopSignalStream(self, imagestream):
         self._topSignalStream.append(imagestream)
 
-    def GetTopSingalStream(self):
+    def GetTopSignalStream(self):
         return self._topSignalStream
 
     def PersistData(self):
         print("DC: Persist acceleration Data")
-        #todo in File schreiben
-        '''
         with open(self._persistFileName, 'w') as f:
             f.write("Speeddata:\n")
+			f.write("-----------------------------------------------------\n")
             for item in self._speedData:
                 f.write("%s\n" % item)
             f.write("AccelerationLenghtwise:\n")
+			f.write("-----------------------------------------------------\n")
             for item in self._accelerationLenghtwiseList:
                 f.write("%s\n" % item)
             f.write("AccelerationCrosswise:\n")
+			f.write("-----------------------------------------------------\n")
             for item in self._accelerationCrosswiseList:
                 f.write("%s\n" % item)
-        '''

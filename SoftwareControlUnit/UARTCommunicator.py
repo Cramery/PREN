@@ -1,4 +1,4 @@
-from DataController import DataController
+﻿from DataController import DataController
 from ImageProcessingController import  ImageProcessingController
 from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
@@ -21,9 +21,12 @@ class UARTCommunicator():
         #Serialport
         self._setupSerialPorts()
         #UART Listener Thread initialisieren
-        self._uartListenerThread = ParallelTask(UARTListenerThread(self, self._serialPortRx, self._dataController))
+        self._uartListenerThread = ParallelTask(UARTListenerThread(self._serialPortRx, self._dataController, startSigndetectionEvent))
         self._serialPortTx.write(self._successInit)
-        print("test")
+        startSigndetectionEvent = threading.Event()
+	startSigndetectionEvent.clear() 
+	startSigndetectionEvent.wait()
+	self.StartSignDetection()
 
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")
@@ -46,7 +49,7 @@ class UARTCommunicator():
         #UART Listener-Thread starten
         self.StartUARTListener()
 
-    def CubeIsSafed(self):
+    def StartSignDetection(self):
         print("UARTC: Cube is safed")
         self._imageProcessingController.LookForStartSignCaptureStream()
 

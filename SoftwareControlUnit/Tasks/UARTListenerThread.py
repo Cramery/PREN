@@ -7,13 +7,13 @@ class UARTListenerThread():
     _speedCommand = "8" # Es folgen 3 Byte Data
     _startSignDetectionCommand = "4"
 
-    def __init__(self, uartCommunicator, serialPort, datacontroller):
+    def __init__(self, serialPort, datacontroller, startSigndetectionEvent):
         print("ULT: init")
-        self._uartCommunicator = uartCommunicator
         self._dataController = datacontroller
         self._serialPortRx = serialPort
         # Flag
         self._isStarted = True
+	self._startSigndetectionEvent = startSigndetectionEvent
 
     def Run(self):
         print("ULT: running")
@@ -28,7 +28,7 @@ class UARTListenerThread():
 
     def functionSwitch(self, argument):
         if argument == self._startSignDetectionCommand:
-            self._uartCommunicator.CubeIsSafed()
+            self._startSigndetectionEvent.set()
         elif argument == self._accelerationCrosswiseCommand:
             print("ULT: acceleration Crosswise ", self._serialPortRx.read(3).decode("utf-8"))
             #self._dataController.StoreAccelerationCrosswise(self._serialPortRx.read(3).decode("utf-8"))
