@@ -23,10 +23,8 @@ class UARTCommunicator():
         #UART Listener Thread initialisieren
         self._uartListenerThread = ParallelTask(UARTListenerThread(self._serialPortRx, self._dataController, startSigndetectionEvent))
         self._serialPortTx.write(self._successInit)
-        startSigndetectionEvent = threading.Event()
-	startSigndetectionEvent.clear() 
-	startSigndetectionEvent.wait()
-	self.StartSignDetection()
+        self._startSigndetectionEvent = threading.Event()
+	self._startSigndetectionEvent.clear()
 
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")
@@ -48,6 +46,9 @@ class UARTCommunicator():
                 self._isStarted = True
         #UART Listener-Thread starten
         self.StartUARTListener()
+	#Auf StartSignDetectionEvent warten
+	self._startSigndetectionEvent.wait()
+	self.StartSignDetection()
 
     def StartSignDetection(self):
         print("UARTC: Cube is safed")
