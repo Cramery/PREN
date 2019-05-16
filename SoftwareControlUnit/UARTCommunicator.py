@@ -3,6 +3,7 @@ from ImageProcessingController import  ImageProcessingController
 from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
 import serial
+import threading
 
 class UARTCommunicator():
     # Receive Commanddefinitions
@@ -21,18 +22,20 @@ class UARTCommunicator():
         #Serialport
         self._setupSerialPorts()
         #UART Listener Thread initialisieren
-        self._uartListenerThread = ParallelTask(UARTListenerThread(self._serialPortRx, self._dataController, startSigndetectionEvent))
-        self._serialPortTx.write(self._successInit)
         self._startSigndetectionEvent = threading.Event()
-	self._startSigndetectionEvent.clear()
+        self._uartListenerThread = ParallelTask(UARTListenerThread(self._serialPortRx, self._dataController, self._startSigndetectionEvent))
+        self._serialPortTx.write(self._successInit)
+        self._startSigndetectionEvent.clear()
 
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")
         while not self._isStarted:
             rcv = self._serialPortRx.read(1).decode("utf-8")
+            #todo löschen
+            rcv = self._onCommand
             print("UARTC: listening...", rcv)
             #todo löschen -> Signal von Microcontroller
-            # Signale für start, speed und accelerationmeasurement und start signdetection schreiben
+            #Signale für start, speed und accelerationmeasurement und start signdetection schreiben
             self._serialPortRx.write(b'9')
             self._serialPortRx.write(b'2')
             self._serialPortRx.write(b'101')
@@ -46,9 +49,9 @@ class UARTCommunicator():
                 self._isStarted = True
         #UART Listener-Thread starten
         self.StartUARTListener()
-	#Auf StartSignDetectionEvent warten
-	self._startSigndetectionEvent.wait()
-	self.StartSignDetection()
+        #Auf StartSignDetectionEvent warten
+        self._startSigndetectionEvent.wait()
+        self.StartSignDetection()
 
     def StartSignDetection(self):
         print("UARTC: Cube is safed")

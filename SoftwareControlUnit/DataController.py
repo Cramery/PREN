@@ -30,14 +30,16 @@ class DataController():
         print("DC: Persist acceleration Data")
         with open(self._persistFileName, 'w') as f:
             f.write("Speeddata:\n")
-			f.write("-----------------------------------------------------\n")
+            f.write("-----------------------------------------------------\n")
             for item in self._speedData:
                 f.write("%s\n" % item)
+            f.write("-----------------------------------------------------\n")
             f.write("AccelerationLenghtwise:\n")
-			f.write("-----------------------------------------------------\n")
+            f.write("-----------------------------------------------------\n")
             for item in self._accelerationLenghtwiseList:
                 f.write("%s\n" % item)
+            f.write("-----------------------------------------------------\n")
             f.write("AccelerationCrosswise:\n")
-			f.write("-----------------------------------------------------\n")
+            f.write("-----------------------------------------------------\n")
             for item in self._accelerationCrosswiseList:
                 f.write("%s\n" % item)

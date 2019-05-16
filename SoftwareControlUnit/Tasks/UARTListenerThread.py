@@ -13,7 +13,7 @@ class UARTListenerThread():
         self._serialPortRx = serialPort
         # Flag
         self._isStarted = True
-	self._startSigndetectionEvent = startSigndetectionEvent
+        self._startSigndetectionEvent = startSigndetectionEvent
 
     def Run(self):
         print("ULT: running")
@@ -39,4 +39,5 @@ class UARTListenerThread():
             print("ULT: speed ", self._serialPortRx.read(3).decode("utf-8"))
             #self._dataController.StoreSpeedData(self._serialPortRx.read(3).decode("utf-8"))
         else:
-            print("InvalidArgument passed")
+            #print("InvalidArgument passed:", argument)
+            pass

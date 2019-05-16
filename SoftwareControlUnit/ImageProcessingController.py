@@ -2,9 +2,9 @@ import time
 import RPi.GPIO as GPIO
 import numpy as np
 from picamera import PiCamera
-from picamera.array import PiRGBArray
 import os
 import cv2
+import io
 
 class ImageProcessingController():
     def __init__(self, uartCommunicator, dataController):
@@ -16,10 +16,10 @@ class ImageProcessingController():
         self._startSignCounter = 0
         self._isStopSignFound = False
         #Cam
-		self._camera = PiCamera()
-		self._resolutionWidth = 640
+        self._camera = PiCamera()
+        self._resolutionWidth = 640
         self._resolutionHeight = 480
-		self._camera.resolution = (self._resolutionWidth, self._resolutionHeight)
+        self._camera.resolution = (self._resolutionWidth, self._resolutionHeight)
         #Imagetemaplates
         self._templateArray = self._readTemplateArray("/ImageTemplates")
         #Distancemeasurement
@@ -29,8 +29,9 @@ class ImageProcessingController():
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
         while self._startSignCounter <= 3:
-            #todo self._dataController.saveImageStream(self.TakeImagesInRange(True))
-            self._startSignCounter += 1
+            #todo self._dataController.SaveTopSignalStream(self.CaptureStreamInRange(True))
+            self._dataController.SaveTopSignalStream(self.CaptureStream(True))
+        self.SaveImageStreamToFS(self._dataController.GetTopSignalStream())
         print("IPC: 3 Rounds finished, Stopsigndigit is ".format(self._stopSignDigit))
         self._uartCommunicator.LastRoundIsFinished()
 
@@ -86,22 +87,28 @@ class ImageProcessingController():
         return picameraStream
 
     def CaptureStream(self, getTopImages):
-        stream = []
-		image = np.empty((self._resolutionHeight, self._resolutionWidth, 3), dtype=np.uint8)
+        streamCapture = []
+        # Create the in-memory stream
+        stream = io.BytesIO()
         #Set framerate, calculate recordcount
-		if(getTopImages):
-			self.camera.framerate = 20
-			recordcount = self.camera.framerate
+        if(getTopImages):
+            self._camera.framerate = 20
+            recordcount = self._camera.framerate
         else:
-			self.camera.framerate = 10
-			recordcount = self.camera.framerate * 2
-		#Capture images and append to stream
-		for count in range(0,recordcount):
-			camera.capture(image, format='bgr')
-			stream.append(image)
+            self._camera.framerate = 10
+            recordcount = self.camera.framerate * 2
+        #Capture images and append to stream
+        for count in range(0, int(recordcount)):
+            self._camera.capture(stream, format='jpeg')
+            # Construct a numpy array from the stream
+            data = np.fromstring(stream.getvalue(), dtype=np.uint8)
+            # "Decode" the image from the array, preserving colour
+            image = cv2.imdecode(data, 1)
+            #todo opencv obj
+            streamCapture.append(image)
             if (getTopImages):
-                pass
                 # todo Startsignalerkennung
+                self._startSignCounter += 1
             else:
                 pass
                 # todo Stopsignalerkennung
@@ -180,6 +187,15 @@ class ImageProcessingController():
 
     ###################################################################
     #Helper
+    def SaveImageStreamToFS(self,imageStream):
+        print("IPC: saving stream to FS...")
+        cwd = os.getcwd()
+        counter = 0
+        for img in imageStream:
+            frameString = cwd + "img_" + str(counter) + ".jpg".format()
+            print(frameString)
+            cv2.imwrite(frameString, img)
+            counter += 1
 
     def _readTemplateArray(self, path):
         templateArray = []
