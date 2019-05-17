@@ -10,53 +10,53 @@ import cv2
 class ImageProcessingController():
     def __init__(self, uartCommunicator, dataController):
         print("IPC: Init ImageProcessingController")
-        self._uartCommunicator = uartCommunicator
-        self._dataController = dataController
+        self.uartCommunicator = uartCommunicator
+        self.dataController = dataController
         #Controll
-        self._stopSignDigit = 0
+        self.stopSignDigit = 0
         self.StartSignCounter = 0
-        self._isStopSignFound = False
+        self.isStopSignFound = False
         #Cam
-        self._camera = PiCamera()
-        self._resolutionWidth = 640
-        self._resolutionHeight = 480
-        self._camera.resolution = (self._resolutionWidth, self._resolutionHeight)
+        self.camera = PiCamera()
+        self.resolutionWidth = 640
+        self.resolutionHeight = 480
+        self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
         #Imagetemaplates
-        self._templateArray = self._readTemplateArray("/ImageTemplates")
+        self.templateArray = self._readTemplateArray("/ImageTemplates")
         #Distancemeasurement
-        self._setupGPIO()
-        self._distance_threshold = 60
+        self.setupGPIO()
+        self.distance_threshold = 60
         #ImageProcessorThread
-        self._imageProcessorThread = ImageProcessorThread(self)
+        self.imageProcessorThread = ImageProcessorThread(self)
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
         while self.StartSignCounter < 3:
             #todo capturestreaminRange
             currentStream = self.CaptureStream(True)
-            self._imageProcessorThread.SetImageStreamAndStart(currentStream)
-            self._dataController.SaveSignalStream(currentStream)
-        self._imageProcessorThread.FinishThread()
-        print("IPC: 3 Rounds finished, Stopsigndigit is ".format(self._stopSignDigit))
-        self._uartCommunicator.LastRoundIsFinished()
+            self.imageProcessorThread.SetImageStreamAndStart(currentStream)
+            self.dataController.SaveSignalStream(currentStream)
+        self.imageProcessorThread.FinishThread()
+        print("IPC: 3 Rounds finished")
+        self.uartCommunicator.LastRoundIsFinished()
 
     def GetStopSignDigit(self):
         print("IPC: Get Stopsign-Digit")
-        self._stopSignDigit = self._analyzeVideoStream(self._dataController.GetTopSingalStream())
-        print("IPC: Stopdigit: ", self._stopSignDigit)
+        self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetTopSingalStream())
+        print("IPC: Stopdigit is: ", self.stopSignDigit)
 
     def DetectStopSign(self):
         print("IPC: started looking for STOP signs")
-        while not self._isStopSignFound:
-            #todo self.CaptureStreamInRange(False)
-            self._isStopSignFound = True
+        while not self.isStopSignFound:
+            self.isStopSignFound = True
         print("IPC: Stop sign found")
         #todo Distanzmessung
         print("IPC: Stopdigit: Stop Train")
-        self._uartCommunicator.StopTrain()
+        self.uartCommunicator.StopTrain()
 
     ###################################################################
-    # Imagedetection
+    # Streaming
+
     def CaptureStreamInRange(self, getTopImages = True):
         print("IPC: Look for Object in Range")
         lookForSign = True
@@ -65,16 +65,16 @@ class ImageProcessingController():
         sleeptime = 0.1
         while lookForSign:
             # Abstandsmessung wird mittels des 10us langen Triggersignals gestartet
-            GPIO.output(self._trigger_AusgangsPin, True)
+            GPIO.output(self.trigger_AusgangsPin, True)
             time.sleep(0.00001)
-            GPIO.output(self._trigger_AusgangsPin, False)
+            GPIO.output(self.trigger_AusgangsPin, False)
 
             # Hier wird die Stopuhr gestartet
             EinschaltZeit = time.time()
-            while GPIO.input(self._echo_EingangsPin) == 0:
+            while GPIO.input(self.echo_EingangsPin) == 0:
                 EinschaltZeit = time.time()  # Es wird solange die aktuelle Zeit gespeichert, bis das Signal aktiviert wird
 
-            while GPIO.input(self._echo_EingangsPin) == 1:
+            while GPIO.input(self.echo_EingangsPin) == 1:
                 AusschaltZeit = time.time()  # Es wird die letzte Zeit aufgenommen, wo noch das Signal aktiv war
 
             # Die Differenz der beiden Zeiten ergibt die gesuchte Dauer
@@ -83,7 +83,7 @@ class ImageProcessingController():
             Abstand = (Dauer * 34300) / 2
 
             # Überprüfung, ob der gemessene Wert unterhalb des Thresholds liegt
-            if Abstand < 2 or (round(Abstand) < self._distance_threshold):
+            if Abstand < 2 or (round(Abstand) < self.distance_threshold):
                 print("IPC: Capturestream, getTopImages: ",getTopImages)
                 picameraStream.append(self.CaptureStream(getTopImages))
                 lookForSign = False
@@ -94,16 +94,19 @@ class ImageProcessingController():
     def CaptureStream(self, getTopImages):
         streamCapture = []
         recordcount = 2
-        rawCapture = PiRGBArray(self._camera, self._camera.resolution)
+        rawCapture = PiRGBArray(self.camera, self.camera.resolution)
         #Capture images and append to stream
         for count in range(int(recordcount)):
-            self._camera.capture(rawCapture, format="bgr")
+            self.camera.capture(rawCapture, format="bgr")
             crop_image = self.__cropImage(rawCapture.array, getTopImages)
             streamCapture.append(crop_image)
             rawCapture.truncate(0)
         return streamCapture
 
-    def _analyzeVideoStream(self, videostream):
+    ###################################################################
+    # Imagedetection
+
+    def __analyzeVideoStream(self, videostream):
         print("IPC: Start Stream analysis")
         captures = self._getCroppedBoxes(videostream)
         # All the 6 methods for comparison in a list
@@ -121,7 +124,7 @@ class ImageProcessingController():
                 if (height > 30 & width > 18):
                     # so something
                     i = 0
-                    for template in self._templateArray:
+                    for template in self.templateArray:
                         i += 1
                         w, h = template.shape[::-1]
                         method = eval(meth)
@@ -202,14 +205,14 @@ class ImageProcessingController():
         for imgName in os.listdir(path):
             templateArray.append(path + imgName)
 
-    def _setupGPIO(self):
+    def setupGPIO(self):
         # Hier können die jeweiligen Eingangs-/Ausgangspins ausgewählt werden
-        self._trigger_AusgangsPin = 17
-        self._echo_EingangsPin = 27
+        self.trigger_AusgangsPin = 17
+        self.echo_EingangsPin = 27
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self._trigger_AusgangsPin, GPIO.OUT)
-        GPIO.setup(self._echo_EingangsPin, GPIO.IN)
-        GPIO.output(self._trigger_AusgangsPin, False)
+        GPIO.setup(self.trigger_AusgangsPin, GPIO.OUT)
+        GPIO.setup(self.echo_EingangsPin, GPIO.IN)
+        GPIO.output(self.trigger_AusgangsPin, False)
 
     def UnloadGPIO(self):
         GPIO.cleanup()
