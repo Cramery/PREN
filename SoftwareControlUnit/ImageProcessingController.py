@@ -2,9 +2,10 @@ import time
 import RPi.GPIO as GPIO
 import numpy as np
 from picamera import PiCamera
+from picamera.array import PiRGBArray
+from Tasks.ImageProcessorThread import ImageProcessorThread
 import os
 import cv2
-import io
 
 class ImageProcessingController():
     def __init__(self, uartCommunicator, dataController):
@@ -13,7 +14,7 @@ class ImageProcessingController():
         self._dataController = dataController
         #Controll
         self._stopSignDigit = 0
-        self._startSignCounter = 0
+        self.StartSignCounter = 0
         self._isStopSignFound = False
         #Cam
         self._camera = PiCamera()
@@ -25,13 +26,17 @@ class ImageProcessingController():
         #Distancemeasurement
         self._setupGPIO()
         self._distance_threshold = 60
+        #ImageProcessorThread
+        self._imageProcessorThread = ImageProcessorThread(self)
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
-        while self._startSignCounter <= 3:
-            #todo self._dataController.SaveTopSignalStream(self.CaptureStreamInRange(True))
-            self._dataController.SaveTopSignalStream(self.CaptureStream(True))
-        self.SaveImageStreamToFS(self._dataController.GetTopSignalStream())
+        while self.StartSignCounter < 3:
+            #todo capturestreaminRange
+            currentStream = self.CaptureStream(True)
+            self._imageProcessorThread.SetImageStreamAndStart(currentStream)
+            self._dataController.SaveSignalStream(currentStream)
+        self._imageProcessorThread.FinishThread()
         print("IPC: 3 Rounds finished, Stopsigndigit is ".format(self._stopSignDigit))
         self._uartCommunicator.LastRoundIsFinished()
 
@@ -88,31 +93,15 @@ class ImageProcessingController():
 
     def CaptureStream(self, getTopImages):
         streamCapture = []
-        # Create the in-memory stream
-        stream = io.BytesIO()
-        #Set framerate, calculate recordcount
-        if(getTopImages):
-            self._camera.framerate = 20
-            recordcount = self._camera.framerate
-        else:
-            self._camera.framerate = 10
-            recordcount = self.camera.framerate * 2
+        recordcount = 2
+        rawCapture = PiRGBArray(self._camera, self._camera.resolution)
         #Capture images and append to stream
-        for count in range(0, int(recordcount)):
-            self._camera.capture(stream, format='jpeg')
-            # Construct a numpy array from the stream
-            data = np.fromstring(stream.getvalue(), dtype=np.uint8)
-            # "Decode" the image from the array, preserving colour
-            image = cv2.imdecode(data, 1)
-            #todo opencv obj
-            streamCapture.append(image)
-            if (getTopImages):
-                # todo Startsignalerkennung
-                self._startSignCounter += 1
-            else:
-                pass
-                # todo Stopsignalerkennung
-        return stream
+        for count in range(int(recordcount)):
+            self._camera.capture(rawCapture, format="bgr")
+            crop_image = self.__cropImage(rawCapture.array, getTopImages)
+            streamCapture.append(crop_image)
+            rawCapture.truncate(0)
+        return streamCapture
 
     def _analyzeVideoStream(self, videostream):
         print("IPC: Start Stream analysis")
@@ -185,6 +174,16 @@ class ImageProcessingController():
                                         crops.append(canny[y: y + height, x: x + width])
         return crops
 
+    @staticmethod
+    def __cropImage(img, getTopImages = True):
+        # get width and height of image
+        y, x = img.shape[:2]
+        # crop top left
+        if(getTopImages):
+            return img[0:y // 2, 0:x // 2]
+        else:
+            return img[y // 2:y, 0:x // 2]
+
     ###################################################################
     #Helper
     def SaveImageStreamToFS(self,imageStream):
@@ -192,7 +191,7 @@ class ImageProcessingController():
         cwd = os.getcwd()
         counter = 0
         for img in imageStream:
-            frameString = cwd + "img_" + str(counter) + ".jpg".format()
+            frameString = cwd +"/"+ "image_" + str(counter) + ".jpg"
             print(frameString)
             cv2.imwrite(frameString, img)
             counter += 1

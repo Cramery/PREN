@@ -1,3 +1,5 @@
+from collections import deque
+
 class DataController():
     def __init__(self, uartCommunicator):
         print("DC: Init DataController")
@@ -6,7 +8,8 @@ class DataController():
         self._accelerationLenghtwiseList = []
         self._accelerationCrosswiseList = []
         self._speedData = []
-        self._topSignalStream = []
+        self._topSignalStream = deque()
+        self._imagelist = []
         #PersistFilePath
         self._persistFileName = 'data.txt'
 
@@ -20,11 +23,22 @@ class DataController():
     def StoreSpeedData(self, speedData):
         self._speedData.append(speedData)
 
-    def SaveTopSignalStream(self, imagestream):
+    def SaveSignalStream(self, imagestream):
         self._topSignalStream.append(imagestream)
+        self._imagelist.append(imagestream)
 
-    def GetTopSignalStream(self):
-        return self._topSignalStream
+    def GetImageFromSignalStream(self):
+        if not self.SignalStreamIsEmpty:
+            return self._topSignalStream.popleft()
+
+    def SignalStreamIsEmpty(self):
+        if len(self._topSignalStream) >= 1:
+            return False
+        else:
+            return True
+
+    def GetAllImages(self):
+        return self._imagelist
 
     def PersistData(self):
         print("DC: Persist acceleration Data")
