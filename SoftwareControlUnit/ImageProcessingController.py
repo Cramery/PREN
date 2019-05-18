@@ -98,7 +98,6 @@ class ImageProcessingController():
         for frame in captureSequence:
             image = self.ioBytesToNpArray(frame)
             streamCapture.append(self.__cropImage(image))
-            cv2.imshow("image", image)
         return streamCapture
 
     def ioBytesToNpArray(self, stream):
@@ -175,7 +174,6 @@ class ImageProcessingController():
 
     def __getCroppedBoxes(self, videostream):
         for image in videostream:
-            print(image)
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             gauss = cv2.GaussianBlur(gray, (5, 5), 0)
             canny = cv2.Canny(gauss, 100, 200)
