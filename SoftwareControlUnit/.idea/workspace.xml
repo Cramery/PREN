@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48eda17c-6aaf-46e1-9d10-70a993ba67e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/ImageProcessingController.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessingController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UARTCommunicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/UARTCommunicator.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="175" column="33" selection-start-line="175" selection-start-column="33" selection-end-line="175" selection-end-column="33" />
+            <state relative-caret-position="34">
+              <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="3" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestImageCapture.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -31,9 +39,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
+            <state relative-caret-position="1615">
               <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -45,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="697">
               <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
             </state>
           </provider>
@@ -62,8 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>processor</find>
-      <find>write</find>
       <find>done</find>
       <find>io.</find>
       <find>flush</find>
@@ -92,6 +107,8 @@
       <find>jpeg</find>
       <find>UnloadGPIO</find>
       <find>print(image</find>
+      <find>crop</find>
+      <find>self</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,6 +132,7 @@
         <option value="$PROJECT_DIR$/Tasks/UARTListenerThread.py" />
         <option value="$PROJECT_DIR$/UARTCommunicator.py" />
         <option value="$PROJECT_DIR$/ImageProcessingController.py" />
+        <option value="$PROJECT_DIR$/TestImageCapture.py" />
       </list>
     </option>
   </component>
@@ -129,6 +147,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -136,16 +155,10 @@
               <item name="SoftwareControlUnit" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoftwareControlUnit" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SoftwareControlUnit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoftwareControlUnit" type="462c0819:PsiDirectoryNode" />
-              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -174,7 +187,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Start">
+  <component name="RunManager" selected="Python.TestImageCapture">
     <configuration name="SoftwareControlUnit" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SoftwareControlUnit" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -211,6 +224,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Start.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestImageCapture" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SoftwareControlUnit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestImageCapture.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -268,9 +303,11 @@
       <item itemvalue="Python.Start" />
       <item itemvalue="Python.UARTCommunicator" />
       <item itemvalue="Python.serialTXTest" />
+      <item itemvalue="Python.TestImageCapture" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TestImageCapture" />
         <item itemvalue="Python.Start" />
         <item itemvalue="Python.serialTXTest" />
         <item itemvalue="Python.SoftwareControlUnit" />
@@ -309,11 +346,12 @@
       <workItem from="1558161195238" duration="1760000" />
       <workItem from="1558163165714" duration="11195000" />
       <workItem from="1558183660561" duration="239000" />
+      <workItem from="1558184032635" duration="861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88139000" />
+    <option name="totallyTimeSpent" value="89000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -326,13 +364,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19240098" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1956346" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4907033" weight="0.3280142" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84559417" weight="0.48049647" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.84559417" visible="true" weight="0.39716312" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.62409055" weight="0.39893618" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -343,7 +382,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.15440582" side_tool="true" weight="0.61170214" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32978722" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4995958" weight="0.3280142" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6095392" weight="0.37943262" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6095392" weight="0.20744681" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -380,7 +419,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$serialTXTest.coverage" NAME="serialTXTest Coverage Results" MODIFIED="1557670161485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1558183880590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SoftwareControlUnit$TestImageCapture.coverage" NAME="TestImageCapture Coverage Results" MODIFIED="1558185051774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1558184467967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Thread/Runnable.py">
@@ -480,20 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/serial/serialutil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -503,7 +529,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
+        <state relative-caret-position="1615">
           <caret line="102" column="31" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -511,10 +537,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="175" column="33" selection-start-line="175" selection-start-column="33" selection-end-line="175" selection-end-column="33" />
+        <state relative-caret-position="34">
+          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestImageCapture.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

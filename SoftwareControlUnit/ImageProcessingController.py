@@ -97,7 +97,7 @@ class ImageProcessingController():
             captureSequence, format='jpeg', use_video_port=True)
         for frame in captureSequence:
             image = self.ioBytesToNpArray(frame)
-            streamCapture.append(self.__cropImage(image))
+            streamCapture.append(self.__cropImage(image, getTopImages))
         return streamCapture
 
     def ioBytesToNpArray(self, stream):
@@ -177,10 +177,8 @@ class ImageProcessingController():
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             gauss = cv2.GaussianBlur(gray, (5, 5), 0)
             canny = cv2.Canny(gauss, 100, 200)
-
             contours, hierarchy = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
             crops = []
-
             for i, cnt in enumerate(contours):
                 if hierarchy[0][i][3] != -1 and hierarchy[0][i][2] < 0:
                     print("hir1")
