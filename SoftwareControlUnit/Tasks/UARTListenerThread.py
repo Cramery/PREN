@@ -30,13 +30,13 @@ class UARTListenerThread():
         if argument == self.startSignDetectionCommand:
             self.startSigndetectionEvent.set()
         elif argument == self.accelerationCrosswiseCommand:
-            print("ULT: acceleration Crosswise ", self.serialPortRx.read(3).decode("utf-8"))
-            self.dataController.StoreAccelerationCrosswise(self._serialPortRx.read(3).decode("utf-8"))
+            print("ULT: acceleration Crosswise ")
+            self.dataController.StoreAccelerationCrosswise(self.serialPortRx.read(3).decode("utf-8"))
         elif argument == self.accelerationLenghtwiseCommand:
-            print("ULT: acceleration Lenghtwise ", self.serialPortRx.read(3).decode("utf-8"))
-            self.dataController.StoreAccelerationLenghtwise()
+            print("ULT: acceleration Lenghtwise")
+            self.dataController.StoreAccelerationLenghtwise(self.serialPortRx.read(3).decode("utf-8"))
         elif argument == self.speedCommand:
-            print("ULT: speed ", self.serialPortRx.read(3).decode("utf-8"))
-            self.dataController.StoreSpeedData(self._serialPortRx.read(3).decode("utf-8"))
-        else:
-            print("InvalidArgument passed:", argument)
+            print("ULT: speed ")
+            self.dataController.StoreSpeedData(self.serialPortRx.read(3).decode("utf-8"))
+        #else:
+            #print("InvalidArgument passed:", argument)

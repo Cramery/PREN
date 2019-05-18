@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48eda17c-6aaf-46e1-9d10-70a993ba67e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ImageRecognition/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ImageRecognition/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SoftwareControlUnit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SoftwareControlUnit.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataController.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImageProcessingController.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageProcessingController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tasks/ImageProcessorThread.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/ImageProcessorThread.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tasks/UARTListenerThread.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tasks/UARTListenerThread.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UARTCommunicator.py" beforeDir="false" afterPath="$PROJECT_DIR$/UARTCommunicator.py" afterDir="false" />
     </list>
@@ -16,8 +19,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SoftwareControlUnit$UARTCommunicator.coverage" NAME="UARTCommunicator Coverage Results" MODIFIED="1552640700752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1557482183187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SoftwareControlUnit$UARTCommunicator.coverage" NAME="UARTCommunicator Coverage Results" MODIFIED="1552640700752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$SoftwareControlUnit.coverage" NAME="SoftwareControlUnit Coverage Results" MODIFIED="1557474218835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -25,10 +28,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1053">
-              <caret line="88" column="35" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="35" />
+            <state relative-caret-position="-534">
+              <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#5572#7025#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataController.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,12 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>InRange</find>
-      <find>StoreAccelerationCrosswise</find>
-      <find>serial</find>
-      <find>loo</find>
-      <find>look</find>
-      <find>datacontroller</find>
       <find>TakeImagesInRange</find>
       <find>processor</find>
       <find>write</find>
@@ -60,6 +88,7 @@
       <find>ter</find>
       <find>imagepro</find>
       <find>ProcessOutput</find>
+      <find>lookForSign</find>
       <find>SaveImageStreamToFS</find>
       <find>_resolutionWidth</find>
       <find>toim</find>
@@ -72,9 +101,14 @@
       <find>StartSignCounter</find>
       <find>fs</find>
       <find>raw</find>
-      <find>_analyzeVideoStream</find>
-      <find>._</find>
-      <find>lookForSign</find>
+      <find>ListenForStart</find>
+      <find>stopd</find>
+      <find>__analyzeVideoStream</find>
+      <find>GetStopSignDigit</find>
+      <find>GPIO</find>
+      <find>GIP</find>
+      <find>jpeg</find>
+      <find>UnloadGPIO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,18 +127,18 @@
         <option value="$PROJECT_DIR$/SoftwareControlUnit.py" />
         <option value="$PROJECT_DIR$/ProcessOutput.py" />
         <option value="$PROJECT_DIR$/Tasks/ImageProcessorThread.py" />
-        <option value="$PROJECT_DIR$/UARTCommunicator.py" />
-        <option value="$PROJECT_DIR$/Start.py" />
         <option value="$PROJECT_DIR$/DataController.py" />
+        <option value="$PROJECT_DIR$/Start.py" />
         <option value="$PROJECT_DIR$/Tasks/UARTListenerThread.py" />
+        <option value="$PROJECT_DIR$/UARTCommunicator.py" />
         <option value="$PROJECT_DIR$/ImageProcessingController.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+    <option name="x" value="-11" />
+    <option name="width" value="980" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -112,6 +146,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -119,21 +154,10 @@
               <item name="SoftwareControlUnit" type="b2602c69:ProjectViewProjectNode" />
               <item name="SoftwareControlUnit" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="SoftwareControlUnit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoftwareControlUnit" type="462c0819:PsiDirectoryNode" />
-              <item name="Tasks" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoftwareControlUnit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoftwareControlUnit" type="462c0819:PsiDirectoryNode" />
-              <item name="Thread" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,35 +315,47 @@
       <workItem from="1557988376454" duration="9218000" />
       <workItem from="1558007182355" duration="3365000" />
       <workItem from="1558066043411" duration="15280000" />
-      <workItem from="1558087007513" duration="2153000" />
-      <workItem from="1558102246975" duration="869000" />
+      <workItem from="1558087007513" duration="2301000" />
+      <workItem from="1558092838179" duration="670000" />
+      <workItem from="1558160539979" duration="609000" />
+      <workItem from="1558161195238" duration="1760000" />
+      <workItem from="1558163165714" duration="11195000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74387000" />
+    <option name="totallyTimeSpent" value="87900000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20636183" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18916734" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4907033" weight="0.32735777" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84559417" weight="0.53723407" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4907033" weight="0.3280142" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.84559417" weight="0.48049647" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.62409055" weight="0.39893618" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.15440582" side_tool="true" weight="0.61170214" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32978722" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.4995958" weight="0.3280142" />
-      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6095392" visible="true" weight="0.20212767" />
+      <window_info anchor="bottom" id="File Transfer" order="13" sideWeight="0.6095392" weight="0.37943262" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -356,7 +392,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SoftwareControlUnit$serialTXTest.coverage" NAME="serialTXTest Coverage Results" MODIFIED="1557670161485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1558084848433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SoftwareControlUnit$Start.coverage" NAME="Start Coverage Results" MODIFIED="1558176408576" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Thread/Runnable.py">
@@ -395,20 +431,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/serial/serialcli.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/serial/serialcli.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serialTXTest.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/serial/serialutil.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/serial/serialutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProcessOutput.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/encoders.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/camera.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/array.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-306053699/88424307/picamera/array.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/1286199396/88424307/png.py" />
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-306053699/201545290/threading.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-306053699/88424307/picamera/array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="183" column="6" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/1286199396/88424307/png.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-306053699/201545290/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="861" selection-start-line="861" selection-end-line="861" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="237" selection-start-line="237" selection-end-line="237" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tasks/ImageProcessorThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="1420" selection-start-line="1420" selection-end-line="1420" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2019.1/system/remote_sources/-1318509983/88424307/picamera/encoders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="397" selection-start-line="397" selection-end-line="397" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/UARTCommunicator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+        <state relative-caret-position="40">
+          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -417,38 +511,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="84">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DataController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="38" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tasks/ImageProcessorThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tasks/UARTListenerThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        <state relative-caret-position="119">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImageProcessingController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="88" column="35" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="35" />
+        <state relative-caret-position="-534">
+          <caret line="98" column="48" lean-forward="true" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#5572#7025#0" />
           </folding>
         </state>
       </provider>

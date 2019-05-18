@@ -13,8 +13,9 @@ class ImageProcessorThread(threading.Thread):
         while not self.isTerminated:
             while not self.isStopSignFound:
                 print("IPCT: Processing Stream")
+                self.owner.StartSignCounter += 1
                 for img in self.imagestream:
-                    self._checkStartSignal(img)
+                    self.__checkStartSignal(img)
                     if self.isStopSignFound:
                         self.owner.StartSignCounter += 1
                         break
@@ -27,6 +28,6 @@ class ImageProcessorThread(threading.Thread):
         print("IPCT: Image Processing Thread stopped")
         self.isTerminated = True
 
-    def _checkStartSignal(self, img):
+    def __checkStartSignal(self, img):
         pass
         self.isStopSignFound = True

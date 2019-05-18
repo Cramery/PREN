@@ -13,9 +13,8 @@ class DataController():
         #PersistFilePath
         self._persistFileName = 'data.txt'
 
-
     def StoreAccelerationLenghtwise(self, accelerationLenghtwise):
-        self._accelerationLenghtwise.append(accelerationLenghtwise)
+        self.accelerationLenghtwiseList.append(accelerationLenghtwise)
 
     def StoreAccelerationCrosswise(self, accelerationCrosswise):
         self.accelerationCrosswiseList.append(accelerationCrosswise)

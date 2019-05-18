@@ -4,6 +4,8 @@ from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
 import serial
 import threading
+import RPi.GPIO as GPIO
+from time import sleep
 
 class UARTCommunicator():
     # Receive Commanddefinitions
@@ -31,26 +33,25 @@ class UARTCommunicator():
         print("UARTC: listening for ON-Signal")
         while not self.isStarted:
             rcv = self.serialPortRx.read(1).decode("utf-8")
-            #todo löschen
-            rcv = self.onCommand
             print("UARTC: listening...", rcv)
+            rcv = "9"
             #todo löschen -> Signal von Microcontroller
             #Signale für start, speed und accelerationmeasurement und start signdetection schreiben
-            self.serialPortRx.write(b'9')
-            self.serialPortRx.write(b'2')
-            self.serialPortRx.write(b'101')
-            self.serialPortRx.write(b'3')
-            self.serialPortRx.write(b'202')
-            self.serialPortRx.write(b'8')
-            self.serialPortRx.write(b'303')
-            self.serialPortRx.write(b'4')
+            self.serialPortTx.write(b'9')
+            self.serialPortTx.write(b'2')
+            self.serialPortTx.write(b'101')
+            self.serialPortTx.write(b'3')
+            self.serialPortTx.write(b'202')
+            self.serialPortTx.write(b'8')
+            self.serialPortTx.write(b'303')
+            self.serialPortTx.write(b'4')
             if(rcv == self.onCommand):
                 print("UARTC: On-Signal detected")
                 self.isStarted = True
         #UART Listener-Thread starten
         self.StartUARTListener()
         #Auf StartSignDetectionEvent warten
-        self.startSigndetectionEvent.wait()
+        #todo self.startSigndetectionEvent.wait()
         self.StartSignDetection()
 
     def StartSignDetection(self):
@@ -60,7 +61,8 @@ class UARTCommunicator():
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
         self.serialPortTx.write(self.roundsDriven)
-        #todo self._playBuzzer(self._imageProcessingController.GetStopSignDigit())
+        stopsigndigit = self.imageProcessingController.GetStopSignDigit()
+        self.__playBuzzer(stopsigndigit)
         self.imageProcessingController.DetectStopSign()
 
     def StopTrain(self):
@@ -68,11 +70,17 @@ class UARTCommunicator():
         #self._serialPortTx.write(self._stopSignDetected)
         self.uartListenerThread.Stop()
         self.dataController.PersistData()
-        self.imageProcessingController.UnloadGPIO()
+        self.UnloadGPIO()
+        self.closeSerialPorts()
 
-    def _playBuzzer(self, count):
-        #todo
-        print("Buzzer sound: ", count)
+    def __playBuzzer(self, number):
+        print("Buzzer sound: ", number)
+        self.buzzer.start(1)
+        for x in range(number):
+            sleep(1)
+            self.buzzer.ChangeFrequency(1500)
+            sleep(1)
+            self.buzzerChangeFrequency(10)
 
     ###################################################################
     #UART-Listener
@@ -93,10 +101,23 @@ class UARTCommunicator():
             print(p)
 
     def setupSerialPorts(self):
-        #todo serialPortTxPath = "/dev/ttyAMA0"
+        serialPortTxPath = "/dev/ttyAMA0"
         serialPortRxPath = "/dev/ttyS0"
-        serialPortTxPath = "/dev/ttyS0"
         baudrate = 9600
         serialtTimeout = 1.0
         self.serialPortRx = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)
-        self.serialPortTx = serial.Serial(serialPortTxPath, baudrate=baudrate, timeout=serialtTimeout)
+        self.serialPortTx = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)
+
+    def closeSerialPorts(self):
+        self.serialPortRx.close()
+        self.serialPortTx.close()
+
+    def setupGPIO(self):
+        # Hier können die jeweiligen Eingangs-/Ausgangspins ausgewählt werden
+        self.buzzer_Ausgangspin = 24
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.buzzer_Ausgangspin, GPIO.OUT)
+        self.buzzer = GPIO.PWM(self.buzzer_Ausgangspin, 10)
+
+    def UnloadGPIO(self):
+        GPIO.cleanup()
