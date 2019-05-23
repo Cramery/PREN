@@ -1,4 +1,5 @@
 from collections import deque
+import os
 
 class DataController():
     def __init__(self, uartCommunicator):
@@ -11,7 +12,7 @@ class DataController():
         self.topSignalStream = deque()
         self.allImagesList = []
         #PersistFilePath
-        self._persistFileName = 'data.txt'
+        self._persistFileName = os.getcwd()+ '/data/data.txt'
 
     def StoreAccelerationLenghtwise(self, accelerationLenghtwise):
         self.accelerationLenghtwiseList.append(accelerationLenghtwise)
@@ -23,8 +24,9 @@ class DataController():
         self.speedData.append(speedData)
 
     def SaveSignalStream(self, imagestream):
-        self.topSignalStream.append(imagestream)
-        self.allImagesList.append(imagestream)
+        for img in imagestream:
+            self.topSignalStream.append(img)
+            self.allImagesList.append(img)
 
     def GetImageFromSignalStream(self):
         if not self.SignalStreamIsEmpty:

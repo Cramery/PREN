@@ -6,7 +6,7 @@ import numpy as np
 
 def CaptureStream(getTopImages):
     streamCapture = []
-    sequenceLength = 1
+    sequenceLength = 2
     captureSequence = [io.BytesIO() for i in range(sequenceLength)]
     time.sleep(0.07)
     with PiCamera(resolution=(640, 480)) as camera:

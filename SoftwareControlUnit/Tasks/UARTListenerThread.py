@@ -19,7 +19,7 @@ class UARTListenerThread():
         print("ULT: running")
         while self.isStarted:
             rcv = self.serialPortRx.readlines(1)
-            print(rcv)
+            rcv = self.startSignDetectionCommand
             if rcv is not None:
                 self.functionSwitch(rcv)
 

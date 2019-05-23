@@ -18,10 +18,10 @@ class ImageProcessingController():
         self.StartSignCounter = 0
         self.isStopSignFound = False
         #Cam
-        #self.camera = PiCamera()
+        self.camera = PiCamera()
         self.resolutionWidth = 640
         self.resolutionHeight = 480
-        #self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
+        self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
         #Imagetemaplates
         self.templateArray = self._readTemplateArray("/ImageTemplates")
         #Distancemeasurement
@@ -29,12 +29,12 @@ class ImageProcessingController():
         self.distance_threshold = 60
         #ImageProcessorThread
         self.imageProcessorThread = ImageProcessorThread(self)
+        self.imgCounter = 0
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
         while self.StartSignCounter < 3:
-            #todo capturestreaminRange
-            currentStream = self.CaptureStream(True)
+            currentStream = self.CaptureStreamInRange(self.CaptureStream(True))
             self.imageProcessorThread.SetImageStreamAndStart(currentStream)
             self.dataController.SaveSignalStream(currentStream)
         self.imageProcessorThread.FinishThread()
@@ -43,9 +43,10 @@ class ImageProcessingController():
 
     def GetStopSignDigit(self):
         print("IPC: Get Stopsign-Digit")
-        #self.SaveImageStreamToFS(self.dataController.GetAllImages())
-        #self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetAllImages())
+        self.SaveImageStreamToFS(self.dataController.GetAllImages())
+        self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetAllImages())
         print("IPC: Stopdigit is: ", self.stopSignDigit)
+        return self.stopSignDigit
 
     def DetectStopSign(self):
         print("IPC: started looking for STOP signs")
@@ -63,7 +64,6 @@ class ImageProcessingController():
         print("IPC: Look for Object in Range")
         lookForSign = True
         picameraStream = []
-        #todo busy waiting vermeiden
         sleeptime = 0.1
         while lookForSign:
             # Abstandsmessung wird mittels des 10us langen Triggersignals gestartet
@@ -90,49 +90,21 @@ class ImageProcessingController():
         return picameraStream
 
     def CaptureStream(self, getTopImages):
+        print("IPC: Capturing stream")
         streamCapture = []
-        sequenceLength = 1
+        sequenceLength = 2
         captureSequence = [io.BytesIO() for i in range(sequenceLength)]
-        time.sleep(0.07)
-        with PiCamera(resolution=(self.resolutionWidth, self.resolutionHeight)) as self.camera:
-            self.camera.capture_sequence(
-                captureSequence, format='jpeg', use_video_port=True)
-            for frame in captureSequence:
-                image = self.ioBytesToNpArray(frame)
-                streamCapture.append(self.__cropImage(image, getTopImages))
+        self.camera.capture_sequence(
+            captureSequence, format='jpeg', use_video_port=True)
+        for frame in captureSequence:
+            image = self.ioBytesToNpArray(frame)
+            streamCapture.append(self.__cropImage(image, getTopImages))
         return streamCapture
 
     def ioBytesToNpArray(self, stream):
         stream.seek(0)
         file_bytes = np.asarray(bytearray(stream.read()), dtype=np.uint8)
         return cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-
-    '''
-    def CaptureStream(self, getTopImages):
-        streamCapture = []
-        recordcount = 2
-        # Capture images and append to stream
-        for count in range(int(recordcount)):
-            image = np.empty((self.resolutionHeight * self.resolutionWidth * 3,), dtype=np.uint8)
-            self.camera.capture(image, format="bgr")
-            print(image)
-            image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-            crop_image = self.__cropImage(image, getTopImages)
-            streamCapture.append(crop_image)
-        return streamCapture
-        
-    def CaptureStream(self, getTopImages):
-        streamCapture = []
-        recordcount = 2
-        rawCapture = PiRGBArray(self.camera, self.camera.resolution)
-        # Capture images and append to stream
-        for count in range(int(recordcount)):
-            self.camera.capture(rawCapture, format="bgr")
-            crop_image = self.__cropImage(rawCapture.array, getTopImages)
-            streamCapture.append(crop_image)
-            rawCapture.truncate(0)
-        return streamCapture
-    '''
 
     ###################################################################
     # Imagedetection
@@ -170,9 +142,9 @@ class ImageProcessingController():
                             maxwkeittemp = max_val
                             maxnotemp = i
             numbers[maxnotemp] += 1;
-        max = max(numbers)
-        print(numbers.index(max))
-        return numbers.index(max)
+        maximum = max(numbers)
+        print(numbers.index(maximum))
+        return numbers.index(maximum)
 
     def __getCroppedBoxes(self, videostream):
         for image in videostream:
@@ -224,12 +196,10 @@ class ImageProcessingController():
     def SaveImageStreamToFS(self,imageStream):
         print("IPC: saving stream to FS...")
         cwd = os.getcwd()
-        counter = 0
         for img in imageStream:
-            frameString = cwd +"/"+ "image_" + str(counter) + ".jpg"
-            print(frameString)
+            frameString = cwd +"/images/"+ "image_" + str(self.imgCounter) + ".jpg"
             cv2.imwrite(frameString, img)
-            counter += 1
+            self.imgCounter += 1
 
     def _readTemplateArray(self, path):
         templateArray = []

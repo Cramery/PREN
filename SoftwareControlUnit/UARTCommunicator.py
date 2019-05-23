@@ -23,6 +23,8 @@ class UARTCommunicator():
         self.isStarted = False
         #Serialport
         self.setupSerialPorts()
+        self.UnloadGPIO()
+        self.setupGPIO()
         #UART Listener Thread initialisieren
         self.startSigndetectionEvent = threading.Event()
         self.uartListenerThread = ParallelTask(UARTListenerThread(self.serialPort, self.dataController, self.startSigndetectionEvent))
@@ -33,7 +35,7 @@ class UARTCommunicator():
         print("UARTC: listening for ON-Signal")
         while not self.isStarted:
             rcv = self.serialPort.readlines(1)
-            print(rcv)
+            rcv = self.onCommand
             if(rcv == self.onCommand):
                 print("UARTC: On-Signal detected")
                 self.isStarted = True
@@ -50,8 +52,7 @@ class UARTCommunicator():
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
         self.serialPort.write(self.roundsDriven)
-        #stopsigndigit = self.imageProcessingController.GetStopSignDigit()
-        #self.__playBuzzer(stopsigndigit)
+        self.__playBuzzer(self.imageProcessingController.GetStopSignDigit())
         self.imageProcessingController.DetectStopSign()
 
     def StopTrain(self):
@@ -64,12 +65,12 @@ class UARTCommunicator():
 
     def __playBuzzer(self, number):
         print("Buzzer sound: ", number)
-        self.buzzer.start(1)
+        self.buzzer.start(50.0)
         for x in range(number):
-            sleep(1)
+            sleep(0.3)
             self.buzzer.ChangeFrequency(1500)
-            sleep(1)
-            self.buzzerChangeFrequency(10)
+            sleep(0.3)
+            self.buzzer.ChangeFrequency(10)
 
     ###################################################################
     #UART-Listener
@@ -100,7 +101,7 @@ class UARTCommunicator():
 
     def setupGPIO(self):
         # Hier können die jeweiligen Eingangs-/Ausgangspins ausgewählt werden
-        self.buzzer_Ausgangspin = 24
+        self.buzzer_Ausgangspin = 32
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.buzzer_Ausgangspin, GPIO.OUT)
         self.buzzer = GPIO.PWM(self.buzzer_Ausgangspin, 10)
