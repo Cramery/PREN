@@ -18,10 +18,10 @@ class ImageProcessingController():
         self.StartSignCounter = 0
         self.isStopSignFound = False
         #Cam
-        self.camera = PiCamera()
+        #self.camera = PiCamera()
         self.resolutionWidth = 640
         self.resolutionHeight = 480
-        self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
+        #self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
         #Imagetemaplates
         self.templateArray = self._readTemplateArray("/ImageTemplates")
         #Distancemeasurement
@@ -43,7 +43,8 @@ class ImageProcessingController():
 
     def GetStopSignDigit(self):
         print("IPC: Get Stopsign-Digit")
-        self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetAllImages())
+        #self.SaveImageStreamToFS(self.dataController.GetAllImages())
+        #self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetAllImages())
         print("IPC: Stopdigit is: ", self.stopSignDigit)
 
     def DetectStopSign(self):
@@ -93,11 +94,12 @@ class ImageProcessingController():
         sequenceLength = 1
         captureSequence = [io.BytesIO() for i in range(sequenceLength)]
         time.sleep(0.07)
-        self.camera.capture_sequence(
-            captureSequence, format='jpeg', use_video_port=True)
-        for frame in captureSequence:
-            image = self.ioBytesToNpArray(frame)
-            streamCapture.append(self.__cropImage(image, getTopImages))
+        with PiCamera(resolution=(self.resolutionWidth, self.resolutionHeight)) as self.camera:
+            self.camera.capture_sequence(
+                captureSequence, format='jpeg', use_video_port=True)
+            for frame in captureSequence:
+                image = self.ioBytesToNpArray(frame)
+                streamCapture.append(self.__cropImage(image, getTopImages))
         return streamCapture
 
     def ioBytesToNpArray(self, stream):

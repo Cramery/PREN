@@ -9,11 +9,11 @@ from time import sleep
 
 class UARTCommunicator():
     # Receive Commanddefinitions
-    onCommand = "9"
+    onCommand = [b'\t\n'] # =9
     #Send Commanddefinitions
-    successInit = b'1'
-    roundsDriven = b'5'
-    stopSignDetected = b'7'
+    successInit = b'1\n'
+    roundsDriven = b'5\n'
+    stopSignDetected = b'7\n'
 
     def __init__(self):
         print("UARTC: Init UARTCommunicator")
@@ -32,26 +32,15 @@ class UARTCommunicator():
     def ListenForStart(self):
         print("UARTC: listening for ON-Signal")
         while not self.isStarted:
-            rcv = self.serialPort.read(1).decode("utf-8")
-            print("UARTC: listening...", rcv)
-            rcv = "9"
-            #todo löschen -> Signal von Microcontroller
-            #Signale für start, speed und accelerationmeasurement und start signdetection schreiben
-            self.serialPort.write(b'9')
-            self.serialPort.write(b'2')
-            self.serialPort.write(b'101')
-            self.serialPort.write(b'3')
-            self.serialPort.write(b'202')
-            self.serialPort.write(b'8')
-            self.serialPort.write(b'303')
-            self.serialPort.write(b'4')
+            rcv = self.serialPort.readlines(1)
+            print(rcv)
             if(rcv == self.onCommand):
                 print("UARTC: On-Signal detected")
                 self.isStarted = True
         #UART Listener-Thread starten
         self.StartUARTListener()
         #Auf StartSignDetectionEvent warten
-        #todo self.startSigndetectionEvent.wait()
+        self.startSigndetectionEvent.wait()
         self.StartSignDetection()
 
     def StartSignDetection(self):
@@ -61,13 +50,13 @@ class UARTCommunicator():
     def LastRoundIsFinished(self):
         print("UARTC: Last round is finished")
         self.serialPort.write(self.roundsDriven)
-        stopsigndigit = self.imageProcessingController.GetStopSignDigit()
-        self.__playBuzzer(stopsigndigit)
+        #stopsigndigit = self.imageProcessingController.GetStopSignDigit()
+        #self.__playBuzzer(stopsigndigit)
         self.imageProcessingController.DetectStopSign()
 
     def StopTrain(self):
         print("UARTC: Next Sign is Stopsign")
-        #self._serialPortTx.write(self._stopSignDetected)
+        self.serialPort.write(self.stopSignDetected)
         self.uartListenerThread.Stop()
         self.dataController.PersistData()
         self.UnloadGPIO()
@@ -102,7 +91,7 @@ class UARTCommunicator():
 
     def setupSerialPorts(self):
         serialPortRxPath = "/dev/ttyS0"
-        baudrate = 9600
+        baudrate = 115200
         serialtTimeout = 1.0
         self.serialPort = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)
 

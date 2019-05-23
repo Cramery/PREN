@@ -2,6 +2,7 @@ import time
 import io
 import cv2
 from picamera import PiCamera
+import numpy as np
 
 def CaptureStream(getTopImages):
     streamCapture = []
@@ -30,9 +31,18 @@ def __cropImage(img, getTopImages = True):
     else:
         return img[y // 2:y, 0:x // 2]
 
+def writeImages(stream):
+    i = 0
+    for image in stream:
+        print("write")
+        cv2.imwrite('image%05d.jpeg' % (i), image)
+        i += 1
+
 def main():
     print("Software started")
-    CaptureStream(True)
+    stream = CaptureStream(True)
+    writeImages(stream)
 
 if __name__ == "__main__":
     main()
+

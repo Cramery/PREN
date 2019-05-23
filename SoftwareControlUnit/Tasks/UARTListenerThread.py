@@ -2,10 +2,10 @@ import time
 
 class UARTListenerThread():
     #Commands
-    accelerationLenghtwiseCommand = "2" # Es folgen 3 Byte Data
-    accelerationCrosswiseCommand = "3" # Es folgen 3 Byte Data
-    speedCommand = "8" # Es folgen 3 Byte Data
-    startSignDetectionCommand = "4"
+    accelerationLenghtwiseCommand = [b'\x02\n'] # Es folgen 3 Byte Data
+    accelerationCrosswiseCommand = [b'\x03\n'] # Es folgen 3 Byte Data
+    speedCommand = [b'\x08\n'] # Es folgen 3 Byte Data
+    startSignDetectionCommand = [b'\x04\n']
 
     def __init__(self, serialPort, datacontroller, startSigndetectionEvent):
         print("ULT: init")
@@ -18,7 +18,8 @@ class UARTListenerThread():
     def Run(self):
         print("ULT: running")
         while self.isStarted:
-            rcv = self.serialPortRx.read(1).decode("utf-8")
+            rcv = self.serialPortRx.readlines(1)
+            print(rcv)
             if rcv is not None:
                 self.functionSwitch(rcv)
 
@@ -31,12 +32,12 @@ class UARTListenerThread():
             self.startSigndetectionEvent.set()
         elif argument == self.accelerationCrosswiseCommand:
             print("ULT: acceleration Crosswise ")
-            self.dataController.StoreAccelerationCrosswise(self.serialPortRx.read(3).decode("utf-8"))
+            self.dataController.StoreAccelerationCrosswise(self.serialPortRx.readlines(1))
         elif argument == self.accelerationLenghtwiseCommand:
             print("ULT: acceleration Lenghtwise")
-            self.dataController.StoreAccelerationLenghtwise(self.serialPortRx.read(3).decode("utf-8"))
+            self.dataController.StoreAccelerationLenghtwise(self.serialPortRx.readlines(1))
         elif argument == self.speedCommand:
             print("ULT: speed ")
-            self.dataController.StoreSpeedData(self.serialPortRx.read(3).decode("utf-8"))
+            self.dataController.StoreSpeedData(self.serialPortRx.readlines(1))
         #else:
             #print("InvalidArgument passed:", argument)
