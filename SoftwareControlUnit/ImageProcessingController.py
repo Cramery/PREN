@@ -20,7 +20,9 @@ class ImageProcessingController():
         self.camera = PiCamera()
         self.resolutionWidth = 640
         self.resolutionHeight = 480
-        self.sequenceLength = 5
+        self.sequenceLength = 100
+        self.camera.shutter_speed = 1000
+        self.camera.iso = 800
         self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
         #Imagetemaplates
         self.templateArray = self._readTemplateArray("/ImageTemplates")
@@ -33,9 +35,9 @@ class ImageProcessingController():
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
-        while self.StartSignCounter < 3:
-            currentStream = self.CaptureStreamInRange(self.CaptureStream(True))
-            #currentStream = self.CaptureStream(True)
+        while self.StartSignCounter < 8:
+            #currentStream = self.CaptureStreamInRange(self.CaptureStream(True))
+            currentStream = self.CaptureStream(False)
             self.imageProcessorThread.SetImageStreamAndStart(currentStream)
             self.dataController.SaveSignalStream(currentStream)
         self.imageProcessorThread.FinishThread()
@@ -85,7 +87,8 @@ class ImageProcessingController():
             Abstand = (Dauer * 34300) / 2
             # Überprüfung, ob der gemessene Wert unterhalb des Thresholds liegt
             if Abstand < 2 or (round(Abstand) < self.distance_threshold):
-                for img in self.CaptureStream(getTopImages):
+                stream = self.CaptureStream(getTopImages)
+                for img in stream:
                     picameraStream.append(img)
                 lookForSign = False
             else:
@@ -146,12 +149,12 @@ class ImageProcessingController():
         return numbers.index(maximum)
 
     def __getCroppedBoxes(self, videostream):
+        crops = []
         for image in videostream:
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             gauss = cv2.GaussianBlur(gray, (5, 5), 0)
             canny = cv2.Canny(gauss, 100, 200)
             contours, hierarchy = cv2.findContours(canny, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
-            crops = []
             for i, cnt in enumerate(contours):
                 if hierarchy[0][i][3] != -1 and hierarchy[0][i][2] < 0:
                     if cv2.contourArea(cnt) > 100 and cv2.contourArea(cnt) < 3000:
@@ -167,6 +170,7 @@ class ImageProcessingController():
                                         if point[0] == 0 or point[1] == 0:
                                             box_classified = False
                                     if box_classified:
+                                        print(box)
                                         # Append to Crops
                                         x, y, width, height = cv2.boundingRect(box)
                                         crops.append(canny[y: y + height, x: x + width])
@@ -189,6 +193,13 @@ class ImageProcessingController():
         for img in imageStream:
             frameString = cwd +"/images/"+ "image_" + str(self.imgCounter) + ".jpg"
             cv2.imwrite(frameString, img)
+            self.imgCounter += 1
+        self.imgCounter = 0
+        crops = self.__getCroppedBoxes(imageStream)
+        print(len(crops))
+        for crop in crops:
+            frameString = cwd + "/images/" + "crop_" + str(self.imgCounter) + ".jpg"
+            cv2.imwrite(frameString, crop)
             self.imgCounter += 1
 
     def _readTemplateArray(self, path):
