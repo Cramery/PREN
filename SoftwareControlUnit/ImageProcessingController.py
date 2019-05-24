@@ -2,7 +2,6 @@ import time
 import RPi.GPIO as GPIO
 import numpy as np
 from picamera import PiCamera
-from picamera.array import PiRGBArray
 from Tasks.ImageProcessorThread import ImageProcessorThread
 import os
 import cv2
@@ -21,6 +20,7 @@ class ImageProcessingController():
         self.camera = PiCamera()
         self.resolutionWidth = 640
         self.resolutionHeight = 480
+        self.sequenceLength = 5
         self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
         #Imagetemaplates
         self.templateArray = self._readTemplateArray("/ImageTemplates")
@@ -35,6 +35,7 @@ class ImageProcessingController():
         print("IPC: started looking for START and HALTE signs")
         while self.StartSignCounter < 3:
             currentStream = self.CaptureStreamInRange(self.CaptureStream(True))
+            #currentStream = self.CaptureStream(True)
             self.imageProcessorThread.SetImageStreamAndStart(currentStream)
             self.dataController.SaveSignalStream(currentStream)
         self.imageProcessorThread.FinishThread()
@@ -64,7 +65,9 @@ class ImageProcessingController():
         print("IPC: Look for Object in Range")
         lookForSign = True
         picameraStream = []
-        sleeptime = 0.1
+        GPIO.setup(self.trigger_AusgangsPin, GPIO.OUT)
+        GPIO.setup(self.echo_EingangsPin, GPIO.IN)
+        sleeptime = 0.2
         while lookForSign:
             # Abstandsmessung wird mittels des 10us langen Triggersignals gestartet
             GPIO.output(self.trigger_AusgangsPin, True)
@@ -82,8 +85,8 @@ class ImageProcessingController():
             Abstand = (Dauer * 34300) / 2
             # Überprüfung, ob der gemessene Wert unterhalb des Thresholds liegt
             if Abstand < 2 or (round(Abstand) < self.distance_threshold):
-                print("IPC: Capturestream, getTopImages: ",getTopImages)
-                picameraStream.append(self.CaptureStream(getTopImages))
+                for img in self.CaptureStream(getTopImages):
+                    picameraStream.append(img)
                 lookForSign = False
             else:
                 time.sleep(sleeptime)
@@ -92,8 +95,7 @@ class ImageProcessingController():
     def CaptureStream(self, getTopImages):
         print("IPC: Capturing stream")
         streamCapture = []
-        sequenceLength = 2
-        captureSequence = [io.BytesIO() for i in range(sequenceLength)]
+        captureSequence = [io.BytesIO() for i in range(self.sequenceLength)]
         self.camera.capture_sequence(
             captureSequence, format='jpeg', use_video_port=True)
         for frame in captureSequence:
@@ -116,7 +118,6 @@ class ImageProcessingController():
         methods = ['cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR_NORMED',
                    'cv2.TM_CCOEFF', 'cv2.TM_CCORR', 'cv2.TM_SQDIFF']
         numbers = [0, 0, 0, 0, 0, 0, 0, 0]
-
         for meth in methods:
             maxwkeittemp = 0
             maxnotemp = 0
@@ -132,11 +133,9 @@ class ImageProcessingController():
                         i += 1
                         w, h = template.shape[::-1]
                         method = eval(meth)
-
                         # Apply template Matching
                         res = cv2.matchTemplate(capture, template, method)
                         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-
                         # print(str(max_val))
                         if max_val > maxwkeittemp:
                             maxwkeittemp = max_val
@@ -155,16 +154,11 @@ class ImageProcessingController():
             crops = []
             for i, cnt in enumerate(contours):
                 if hierarchy[0][i][3] != -1 and hierarchy[0][i][2] < 0:
-                    print("hir1")
                     if cv2.contourArea(cnt) > 100 and cv2.contourArea(cnt) < 3000:
-                        print("hir2")
                         x, y, w, h = cv2.boundingRect(cnt)
                         if w < 50:
-                            print("hir3")
                             if h < 100:
-                                print("hir4")
                                 if 0.35 < w / h < 0.7:
-                                    print("hir5")
                                     box_classified = True
                                     rect = cv2.minAreaRect(cnt)
                                     box = cv2.boxPoints(rect)
@@ -173,10 +167,6 @@ class ImageProcessingController():
                                         if point[0] == 0 or point[1] == 0:
                                             box_classified = False
                                     if box_classified:
-                                        print(hierarchy[0][i])
-                                        print(rect)
-                                        print(box)
-                                        print("--------------------")
                                         # Append to Crops
                                         x, y, width, height = cv2.boundingRect(box)
                                         crops.append(canny[y: y + height, x: x + width])
@@ -209,8 +199,8 @@ class ImageProcessingController():
 
     def setupGPIO(self):
         # Hier können die jeweiligen Eingangs-/Ausgangspins ausgewählt werden
-        self.trigger_AusgangsPin = 17
-        self.echo_EingangsPin = 27
+        self.trigger_AusgangsPin = 16
+        self.echo_EingangsPin = 20
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.trigger_AusgangsPin, GPIO.OUT)
         GPIO.setup(self.echo_EingangsPin, GPIO.IN)

@@ -53,6 +53,7 @@ class UARTCommunicator():
         print("UARTC: Last round is finished")
         self.serialPort.write(self.roundsDriven)
         self.__playBuzzer(self.imageProcessingController.GetStopSignDigit())
+        #self.__playBuzzer(3)
         self.imageProcessingController.DetectStopSign()
 
     def StopTrain(self):
@@ -68,8 +69,8 @@ class UARTCommunicator():
         self.buzzer.start(50.0)
         for x in range(number):
             sleep(0.3)
-            self.buzzer.ChangeFrequency(1500)
-            sleep(0.3)
+            self.buzzer.ChangeFrequency(4000)
+            sleep(0.2)
             self.buzzer.ChangeFrequency(10)
 
     ###################################################################
@@ -101,7 +102,7 @@ class UARTCommunicator():
 
     def setupGPIO(self):
         # Hier können die jeweiligen Eingangs-/Ausgangspins ausgewählt werden
-        self.buzzer_Ausgangspin = 32
+        self.buzzer_Ausgangspin = 12
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.buzzer_Ausgangspin, GPIO.OUT)
         self.buzzer = GPIO.PWM(self.buzzer_Ausgangspin, 10)

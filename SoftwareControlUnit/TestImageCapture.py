@@ -4,6 +4,8 @@ import cv2
 from picamera import PiCamera
 import numpy as np
 
+
+
 def CaptureStream(getTopImages):
     streamCapture = []
     sequenceLength = 2
