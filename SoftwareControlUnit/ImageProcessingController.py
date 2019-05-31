@@ -20,7 +20,7 @@ class ImageProcessingController():
         self.camera = PiCamera()
         self.resolutionWidth = 640
         self.resolutionHeight = 480
-        self.sequenceLength = 100
+        self.sequenceLength = 10
         self.camera.shutter_speed = 1000
         self.camera.iso = 800
         self.camera.resolution = (self.resolutionWidth, self.resolutionHeight)
@@ -35,9 +35,8 @@ class ImageProcessingController():
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
-        while self.StartSignCounter < 8:
-            #currentStream = self.CaptureStreamInRange(self.CaptureStream(True))
-            currentStream = self.CaptureStream(False)
+        while self.StartSignCounter < 3:
+            currentStream = self.CaptureStreamInRange(True)
             self.imageProcessorThread.SetImageStreamAndStart(currentStream)
             self.dataController.SaveSignalStream(currentStream)
         self.imageProcessorThread.FinishThread()
@@ -170,7 +169,6 @@ class ImageProcessingController():
                                         if point[0] == 0 or point[1] == 0:
                                             box_classified = False
                                     if box_classified:
-                                        print(box)
                                         # Append to Crops
                                         x, y, width, height = cv2.boundingRect(box)
                                         crops.append(canny[y: y + height, x: x + width])

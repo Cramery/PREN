@@ -23,7 +23,6 @@ class UARTCommunicator():
         self.isStarted = False
         #Serialport
         self.setupSerialPorts()
-        self.UnloadGPIO()
         self.setupGPIO()
         #UART Listener Thread initialisieren
         self.startSigndetectionEvent = threading.Event()
@@ -46,15 +45,21 @@ class UARTCommunicator():
         self.StartSignDetection()
 
     def StartSignDetection(self):
-        print("UARTC: Cube is safed")
-        self.imageProcessingController.LookForStartSignCaptureStream()
+        try:
+            print("UARTC: Cube is safed")
+            self.imageProcessingController.LookForStartSignCaptureStream()
+        except:
+            self.UnloadGPIO()
 
     def LastRoundIsFinished(self):
-        print("UARTC: Last round is finished")
-        self.serialPort.write(self.roundsDriven)
-        self.__playBuzzer(self.imageProcessingController.GetStopSignDigit())
-        #self.__playBuzzer(3)
-        self.imageProcessingController.DetectStopSign()
+        try:
+            print("UARTC: Last round is finished")
+            self.serialPort.write(self.roundsDriven)
+            self.__playBuzzer(self.imageProcessingController.GetStopSignDigit())
+            #self.__playBuzzer(3)
+            self.imageProcessingController.DetectStopSign()
+        except:
+            self.UnloadGPIO()
 
     def StopTrain(self):
         print("UARTC: Next Sign is Stopsign")
