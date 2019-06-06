@@ -12,10 +12,11 @@ class ImageProcessingController():
         print("IPC: Init ImageProcessingController")
         self.uartCommunicator = uartCommunicator
         self.dataController = dataController
-        #Controll
+        #Control
         self.stopSignDigit = 0
         self.StartSignCounter = 0
         self.isStopSignFound = False
+        self.timeToDriveFast = 16
         #Cam
         self.camera = PiCamera()
         self.resolutionWidth = 640
@@ -35,18 +36,26 @@ class ImageProcessingController():
 
     def LookForStartSignCaptureStream(self):
         print("IPC: started looking for START and HALTE signs")
+        start_time = time.time()
         while self.StartSignCounter < 3:
-            currentStream = self.CaptureStreamInRange(True)
+            currentStream = self.CaptureStreamInRange(False)
             self.imageProcessorThread.SetImageStreamAndStart(currentStream)
+            print(self.StartSignCounter)
             self.dataController.SaveSignalStream(currentStream)
+            if(time.time() - start_time > self.timeToDriveFast):
+                print("!!!!!!!!!!!!!!!!!!!!!!!!IPC: Stopping Startsingdetection by distance")
+                self.imageProcessorThread.FinishThread()
+                self.uartCommunicator.LastRoundIsFinished()
+                break
+            print(time.time() - start_time)
         self.imageProcessorThread.FinishThread()
         print("IPC: 3 Rounds finished")
         self.uartCommunicator.LastRoundIsFinished()
 
     def GetStopSignDigit(self):
         print("IPC: Get Stopsign-Digit")
-        self.SaveImageStreamToFS(self.dataController.GetAllImages())
-        self.stopSignDigit = self.__analyzeVideoStream(self.dataController.GetAllImages())
+        #self.__analyzeVideoStream(self.dataController.GetAllImages())
+        self.stopSignDigit = 5
         print("IPC: Stopdigit is: ", self.stopSignDigit)
         return self.stopSignDigit
 
@@ -57,6 +66,7 @@ class ImageProcessingController():
         print("IPC: Stop sign found")
         #todo Distanzmessung
         print("IPC: Stop Train")
+        self.SaveImageStreamToFS(self.dataController.GetAllImages())
         self.uartCommunicator.StopTrain()
 
     ###################################################################
@@ -117,12 +127,12 @@ class ImageProcessingController():
         print("IPC: Start Stream analysis")
         captures = self.__getCroppedBoxes(videostream)
         # All the 6 methods for comparison in a list
-        methods = ['cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR_NORMED',
-                   'cv2.TM_CCOEFF', 'cv2.TM_CCORR', 'cv2.TM_SQDIFF']
+        methods = ['cv2.TM_CCOEFF_NORMED']
         numbers = [0, 0, 0, 0, 0, 0, 0, 0]
         for meth in methods:
             maxwkeittemp = 0
             maxnotemp = 0
+            print("IPC: Processing all Images")
             for capture in captures:
                 # capture = cv2.resize(capture, (20, 40))
                 # Get widht/height
@@ -188,17 +198,17 @@ class ImageProcessingController():
     def SaveImageStreamToFS(self,imageStream):
         print("IPC: saving stream to FS...")
         cwd = os.getcwd()
+        '''
         for img in imageStream:
             frameString = cwd +"/images/"+ "image_" + str(self.imgCounter) + ".jpg"
             cv2.imwrite(frameString, img)
             self.imgCounter += 1
         self.imgCounter = 0
+        '''
         crops = self.__getCroppedBoxes(imageStream)
-        print(len(crops))
         for crop in crops:
-            frameString = cwd + "/images/" + "crop_" + str(self.imgCounter) + ".jpg"
+            frameString = cwd + "/images/" + "crop_" + str(time.time()) + ".jpg"
             cv2.imwrite(frameString, crop)
-            self.imgCounter += 1
 
     def _readTemplateArray(self, path):
         templateArray = []

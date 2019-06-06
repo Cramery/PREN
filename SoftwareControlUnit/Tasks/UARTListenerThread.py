@@ -19,7 +19,6 @@ class UARTListenerThread():
         print("ULT: running")
         while self.isStarted:
             rcv = self.serialPort.readlines(1)
-            rcv = self.startSignDetectionCommand
             if rcv is not None:
                 self.functionSwitch(rcv)
 
@@ -31,13 +30,12 @@ class UARTListenerThread():
         if argument == self.startSignDetectionCommand:
             self.startSigndetectionEvent.set()
         elif argument == self.accelerationCrosswiseCommand:
-            print("ULT: acceleration Crosswise ")
             self.dataController.StoreAccelerationCrosswise(self.serialPort.readlines(1))
         elif argument == self.accelerationLenghtwiseCommand:
-            print("ULT: acceleration Lenghtwise")
             self.dataController.StoreAccelerationLenghtwise(self.serialPort.readlines(1))
         elif argument == self.speedCommand:
-            print("ULT: speed ")
             self.dataController.StoreSpeedData(self.serialPort.readlines(1))
+        elif argument == []:
+            pass
         #else:
             #print("InvalidArgument passed:", argument)

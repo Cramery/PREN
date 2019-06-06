@@ -22,11 +22,8 @@ class ImageProcessorThread(threading.Thread):
         self.startSignDetectionEvent.clear()
         while not self.isTerminated:
             while not self.isStopSignFound:
-                print("IPCT: Processing Stream")
                 for img in self.imagestream:
                     self.__checkStartSignal(img)
-                    self.owner.StartSignCounter += 1
-                    self.isStopSignFound = True
                     if self.isStopSignFound:
                         print("IPCT: STOP SIGN REALLY FOUND!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
                         self.owner.StartSignCounter += 1
@@ -42,7 +39,6 @@ class ImageProcessorThread(threading.Thread):
     def FinishThread(self):
         print("IPCT: Image Processing Thread stopped")
         self.isTerminated = True
-        self.terminate()
 
     def __checkStartSignal(self, img):
         # converting frame(img) from BGR (Blue-Green-Red) to HSV (hue-saturation-value)
@@ -103,6 +99,7 @@ class ImageProcessorThread(threading.Thread):
                     detectedRectangle[next][1], detectedRectangle[next][2] + detectedRectangle[next][4]),
                                     (0, 0, 255), 3)
                 self.isStopSignFound
+                print("IPCT: Startsign detected")
                 return
             current += 1
             next += 1

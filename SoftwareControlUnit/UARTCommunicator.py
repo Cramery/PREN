@@ -6,6 +6,7 @@ import serial
 import threading
 import RPi.GPIO as GPIO
 from time import sleep
+import time
 
 class UARTCommunicator():
     # Receive Commanddefinitions
@@ -21,6 +22,7 @@ class UARTCommunicator():
         self.imageProcessingController = ImageProcessingController(self, self.dataController)
         #Control
         self.isStarted = False
+        self.timeToDriveSlow = 8
         #Serialport
         self.setupSerialPorts()
         self.setupGPIO()
@@ -34,7 +36,6 @@ class UARTCommunicator():
         print("UARTC: listening for ON-Signal")
         while not self.isStarted:
             rcv = self.serialPort.readlines(1)
-            rcv = self.onCommand
             if(rcv == self.onCommand):
                 print("UARTC: On-Signal detected")
                 self.isStarted = True
@@ -56,7 +57,9 @@ class UARTCommunicator():
             print("UARTC: Last round is finished")
             self.serialPort.write(self.roundsDriven)
             self.__playBuzzer(self.imageProcessingController.GetStopSignDigit())
-            #self.__playBuzzer(3)
+            start_timer = time.time()
+            while (time.time()-start_timer < self.timeToDriveSlow):
+                time.sleep(0.01)
             self.imageProcessingController.DetectStopSign()
         except:
             self.UnloadGPIO()
@@ -65,6 +68,7 @@ class UARTCommunicator():
         print("UARTC: Next Sign is Stopsign")
         self.serialPort.write(self.stopSignDetected)
         self.uartListenerThread.Stop()
+        self.imageProcessingController.SaveImageStreamToFS(self.dataController.allImagesList())
         self.dataController.PersistData()
         self.UnloadGPIO()
         self.closeSerialPorts()
