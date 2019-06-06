@@ -1,5 +1,5 @@
 ﻿from DataController import DataController
-from ImageProcessingController import  ImageProcessingController
+from ImageProcessingController import ImageProcessingController
 from Thread.ParallelTask import ParallelTask
 from Tasks.UARTListenerThread import UARTListenerThread
 import serial

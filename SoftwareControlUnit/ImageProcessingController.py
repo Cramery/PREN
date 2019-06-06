@@ -13,10 +13,10 @@ class ImageProcessingController():
         self.uartCommunicator = uartCommunicator
         self.dataController = dataController
         #Control
-        self.stopSignDigit = 0
+        self.stopSignDigit = 6
         self.StartSignCounter = 0
         self.isStopSignFound = False
-        self.timeToDriveFast = 16
+        self.timeToDriveFast = 15
         #Cam
         self.camera = PiCamera()
         self.resolutionWidth = 640
@@ -55,7 +55,6 @@ class ImageProcessingController():
     def GetStopSignDigit(self):
         print("IPC: Get Stopsign-Digit")
         #self.__analyzeVideoStream(self.dataController.GetAllImages())
-        self.stopSignDigit = 5
         print("IPC: Stopdigit is: ", self.stopSignDigit)
         return self.stopSignDigit
 
