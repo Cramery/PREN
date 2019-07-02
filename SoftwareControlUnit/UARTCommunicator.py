@@ -10,7 +10,7 @@ import time
 
 class UARTCommunicator():
     # Receive Commanddefinitions
-    onCommand = [b'\t\n'] # =9
+    onCommand = [b'\n'] # =10
     #Send Commanddefinitions
     successInit = b'1\n'
     roundsDriven = b'5\n'
@@ -36,13 +36,14 @@ class UARTCommunicator():
         print("UARTC: listening for ON-Signal")
         while not self.isStarted:
             rcv = self.serialPort.readlines(1)
+            print(rcv)
             if(rcv == self.onCommand):
                 print("UARTC: On-Signal detected")
                 self.isStarted = True
         #UART Listener-Thread starten
         self.StartUARTListener()
         #Auf StartSignDetectionEvent warten
-        self.startSigndetectionEvent.wait()
+        self.startSigndetectionEvent.set()
         self.StartSignDetection()
 
     def StartSignDetection(self):
@@ -70,7 +71,6 @@ class UARTCommunicator():
         self.uartListenerThread.Stop()
         self.imageProcessingController.SaveImageStreamToFS(self.dataController.allImagesList())
         self.dataController.PersistData()
-        self.UnloadGPIO()
         self.closeSerialPorts()
 
     def __playBuzzer(self, number):
@@ -101,7 +101,7 @@ class UARTCommunicator():
             print(p)
 
     def setupSerialPorts(self):
-        serialPortRxPath = "/dev/ttyS0"
+        serialPortRxPath = '/dev/ttyS0'
         baudrate = 115200
         serialtTimeout = 1.0
         self.serialPort = serial.Serial(serialPortRxPath, baudrate=baudrate, timeout=serialtTimeout)

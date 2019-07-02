@@ -37,5 +37,5 @@ class UARTListenerThread():
             self.dataController.StoreSpeedData(self.serialPort.readlines(1))
         elif argument == []:
             pass
-        #else:
-            #print("InvalidArgument passed:", argument)
+        else:
+            print("InvalidArgument passed:", argument)
