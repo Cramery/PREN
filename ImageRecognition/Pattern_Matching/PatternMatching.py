@@ -6,7 +6,7 @@ path = 'pictures_real/fahrt/'
 capturenames = os.listdir(path)  # list of subdirectories and files
 captures = []
 
-for capturename in capturenames:
+for capturename in os.listdir(path):
     temp = path + capturename
     captures.append(cv2.imread(temp,0))
 
@@ -23,10 +23,11 @@ for templatename in templatenames:
 methods = ['cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR_NORMED',
            'cv2.TM_CCOEFF', 'cv2.TM_CCORR', 'cv2.TM_SQDIFF']
 
+numbers = [0, 0, 0, 0, 0, 0, 0, 0]
+
 for meth in methods:
     maxwkeittemp = 0
     maxnotemp = 0
-    print(str(meth))
     for capture in captures:
         # capture = cv2.resize(capture, (20, 40))
         # Get widht/height
@@ -48,5 +49,7 @@ for meth in methods:
                 if max_val > maxwkeittemp:
                     maxwkeittemp = max_val
                     maxnotemp = i
-    print(str(maxnotemp))
-    print(str(maxwkeittemp))
+    numbers[maxnotemp] += 1;
+max = max(numbers)
+print(numbers.index(max))
+
